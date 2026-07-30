@@ -1,0 +1,119 @@
+7767517
+117 135
+Input                    search                      0 1 search
+Convolution              lightfc_search.ncnn/convclip_0               1 1 search lightfc_search.ncnn/1 0=32 1=3 -23310=2,0.0,6.0 11=3 12=1 13=2 14=1 2=1 3=2 4=1 5=1 6=864 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_0             1 1 lightfc_search.ncnn/1 lightfc_search.ncnn/2 0=32 1=3 -23310=2,0.0,6.0 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=288 7=32 9=3
+Convolution              lightfc_search.ncnn/conv_1                   1 1 lightfc_search.ncnn/2 lightfc_search.ncnn/3 0=16 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=512
+Convolution              lightfc_search.ncnn/convclip_1               1 1 lightfc_search.ncnn/3 lightfc_search.ncnn/4 0=96 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=1536 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_1             1 1 lightfc_search.ncnn/4 lightfc_search.ncnn/5 0=96 1=3 -23310=2,0.0,6.0 11=3 12=1 13=2 14=1 2=1 3=2 4=1 5=1 6=864 7=96 9=3
+Convolution              lightfc_search.ncnn/conv_3                   1 1 lightfc_search.ncnn/5 lightfc_search.ncnn/6 0=24 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=2304
+Split                    lightfc_search.ncnn/splitncnn_0              1 2 lightfc_search.ncnn/6 lightfc_search.ncnn/7 lightfc_search.ncnn/8
+Convolution              lightfc_search.ncnn/convclip_2               1 1 lightfc_search.ncnn/8 lightfc_search.ncnn/9 0=144 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=3456 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_2             1 1 lightfc_search.ncnn/9 lightfc_search.ncnn/10 0=144 1=3 -23310=2,0.0,6.0 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=1296 7=144 9=3
+Convolution              lightfc_search.ncnn/conv_5                   1 1 lightfc_search.ncnn/10 lightfc_search.ncnn/11 0=24 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=3456
+BinaryOp                 lightfc_search.ncnn/add_0                    2 1 lightfc_search.ncnn/7 lightfc_search.ncnn/11 lightfc_search.ncnn/12 0=0
+Convolution              lightfc_search.ncnn/convclip_3               1 1 lightfc_search.ncnn/12 lightfc_search.ncnn/13 0=144 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=3456 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_3             1 1 lightfc_search.ncnn/13 lightfc_search.ncnn/14 0=144 1=3 -23310=2,0.0,6.0 11=3 12=1 13=2 14=1 2=1 3=2 4=1 5=1 6=1296 7=144 9=3
+Convolution              lightfc_search.ncnn/conv_7                   1 1 lightfc_search.ncnn/14 lightfc_search.ncnn/15 0=32 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=4608
+Split                    lightfc_search.ncnn/splitncnn_1              1 2 lightfc_search.ncnn/15 lightfc_search.ncnn/16 lightfc_search.ncnn/17
+Convolution              lightfc_search.ncnn/convclip_4               1 1 lightfc_search.ncnn/17 lightfc_search.ncnn/18 0=192 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=6144 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_4             1 1 lightfc_search.ncnn/18 lightfc_search.ncnn/19 0=192 1=3 -23310=2,0.0,6.0 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=1728 7=192 9=3
+Convolution              lightfc_search.ncnn/conv_9                   1 1 lightfc_search.ncnn/19 lightfc_search.ncnn/20 0=32 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=6144
+BinaryOp                 lightfc_search.ncnn/add_1                    2 1 lightfc_search.ncnn/16 lightfc_search.ncnn/20 lightfc_search.ncnn/21 0=0
+Split                    lightfc_search.ncnn/splitncnn_2              1 2 lightfc_search.ncnn/21 lightfc_search.ncnn/22 lightfc_search.ncnn/23
+Convolution              lightfc_search.ncnn/convclip_5               1 1 lightfc_search.ncnn/23 lightfc_search.ncnn/24 0=192 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=6144 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_5             1 1 lightfc_search.ncnn/24 lightfc_search.ncnn/25 0=192 1=3 -23310=2,0.0,6.0 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=1728 7=192 9=3
+Convolution              lightfc_search.ncnn/conv_11                  1 1 lightfc_search.ncnn/25 lightfc_search.ncnn/26 0=32 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=6144
+BinaryOp                 lightfc_search.ncnn/add_2                    2 1 lightfc_search.ncnn/22 lightfc_search.ncnn/26 lightfc_search.ncnn/27 0=0
+Convolution              lightfc_search.ncnn/convclip_6               1 1 lightfc_search.ncnn/27 lightfc_search.ncnn/28 0=192 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=6144 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_6             1 1 lightfc_search.ncnn/28 lightfc_search.ncnn/29 0=192 1=3 -23310=2,0.0,6.0 11=3 12=1 13=2 14=1 2=1 3=2 4=1 5=1 6=1728 7=192 9=3
+Convolution              lightfc_search.ncnn/conv_13                  1 1 lightfc_search.ncnn/29 lightfc_search.ncnn/30 0=64 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=12288
+Split                    lightfc_search.ncnn/splitncnn_3              1 2 lightfc_search.ncnn/30 lightfc_search.ncnn/31 lightfc_search.ncnn/32
+Convolution              lightfc_search.ncnn/convclip_7               1 1 lightfc_search.ncnn/32 lightfc_search.ncnn/33 0=384 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=24576 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_7             1 1 lightfc_search.ncnn/33 lightfc_search.ncnn/34 0=384 1=3 -23310=2,0.0,6.0 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=3456 7=384 9=3
+Convolution              lightfc_search.ncnn/conv_15                  1 1 lightfc_search.ncnn/34 lightfc_search.ncnn/35 0=64 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=24576
+BinaryOp                 lightfc_search.ncnn/add_3                    2 1 lightfc_search.ncnn/31 lightfc_search.ncnn/35 lightfc_search.ncnn/36 0=0
+Split                    lightfc_search.ncnn/splitncnn_4              1 2 lightfc_search.ncnn/36 lightfc_search.ncnn/37 lightfc_search.ncnn/38
+Convolution              lightfc_search.ncnn/convclip_8               1 1 lightfc_search.ncnn/38 lightfc_search.ncnn/39 0=384 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=24576 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_8             1 1 lightfc_search.ncnn/39 lightfc_search.ncnn/40 0=384 1=3 -23310=2,0.0,6.0 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=3456 7=384 9=3
+Convolution              lightfc_search.ncnn/conv_17                  1 1 lightfc_search.ncnn/40 lightfc_search.ncnn/41 0=64 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=24576
+BinaryOp                 lightfc_search.ncnn/add_4                    2 1 lightfc_search.ncnn/37 lightfc_search.ncnn/41 lightfc_search.ncnn/42 0=0
+Split                    lightfc_search.ncnn/splitncnn_5              1 2 lightfc_search.ncnn/42 lightfc_search.ncnn/43 lightfc_search.ncnn/44
+Convolution              lightfc_search.ncnn/convclip_9               1 1 lightfc_search.ncnn/44 lightfc_search.ncnn/45 0=384 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=24576 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_9             1 1 lightfc_search.ncnn/45 lightfc_search.ncnn/46 0=384 1=3 -23310=2,0.0,6.0 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=3456 7=384 9=3
+Convolution              lightfc_search.ncnn/conv_19                  1 1 lightfc_search.ncnn/46 lightfc_search.ncnn/47 0=64 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=24576
+BinaryOp                 lightfc_search.ncnn/add_5                    2 1 lightfc_search.ncnn/43 lightfc_search.ncnn/47 lightfc_search.ncnn/48 0=0
+Convolution              lightfc_search.ncnn/convclip_10              1 1 lightfc_search.ncnn/48 lightfc_search.ncnn/49 0=384 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=24576 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_10            1 1 lightfc_search.ncnn/49 lightfc_search.ncnn/50 0=384 1=3 -23310=2,0.0,6.0 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=3456 7=384 9=3
+Convolution              lightfc_search.ncnn/conv_21                  1 1 lightfc_search.ncnn/50 lightfc_search.ncnn/51 0=96 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=36864
+Split                    lightfc_search.ncnn/splitncnn_6              1 2 lightfc_search.ncnn/51 lightfc_search.ncnn/52 lightfc_search.ncnn/53
+Convolution              lightfc_search.ncnn/convclip_11              1 1 lightfc_search.ncnn/53 lightfc_search.ncnn/54 0=576 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=55296 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_11            1 1 lightfc_search.ncnn/54 lightfc_search.ncnn/55 0=576 1=3 -23310=2,0.0,6.0 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=5184 7=576 9=3
+Convolution              lightfc_search.ncnn/conv_23                  1 1 lightfc_search.ncnn/55 lightfc_search.ncnn/56 0=96 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=55296
+BinaryOp                 lightfc_search.ncnn/add_6                    2 1 lightfc_search.ncnn/52 lightfc_search.ncnn/56 lightfc_search.ncnn/57 0=0
+Split                    lightfc_search.ncnn/splitncnn_7              1 2 lightfc_search.ncnn/57 lightfc_search.ncnn/58 lightfc_search.ncnn/59
+Convolution              lightfc_search.ncnn/convclip_12              1 1 lightfc_search.ncnn/59 lightfc_search.ncnn/60 0=576 1=1 -23310=2,0.0,6.0 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=55296 9=3
+ConvolutionDepthWise     lightfc_search.ncnn/convdwclip_12            1 1 lightfc_search.ncnn/60 lightfc_search.ncnn/61 0=576 1=3 -23310=2,0.0,6.0 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=5184 7=576 9=3
+Convolution              lightfc_search.ncnn/conv_25                  1 1 lightfc_search.ncnn/61 lightfc_search.ncnn/62 0=96 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=55296
+BinaryOp                 lightfc_search.ncnn/add_7                    2 1 lightfc_search.ncnn/58 lightfc_search.ncnn/62 search_features 0=0
+Input                    template_features                      0 1 template_features
+Split                    lightfc_fusion.ncnn/splitncnn_0              1 2 search_features lightfc_fusion.ncnn/2 lightfc_fusion.ncnn/3
+Reshape                  lightfc_fusion.ncnn/reshape_9                1 1 template_features lightfc_fusion.ncnn/4 0=64 1=96
+Permute                  lightfc_fusion.ncnn/transpose_14             1 1 lightfc_fusion.ncnn/4 lightfc_fusion.ncnn/5 0=1
+Reshape                  lightfc_fusion.ncnn/reshape_10               1 1 lightfc_fusion.ncnn/3 lightfc_fusion.ncnn/6 0=256 1=96
+MatMul                   lightfc_fusion.ncnn/matmul_13                2 1 lightfc_fusion.ncnn/5 lightfc_fusion.ncnn/6 lightfc_fusion.ncnn/7
+Reshape                  lightfc_fusion.ncnn/reshape_11               1 1 lightfc_fusion.ncnn/7 lightfc_fusion.ncnn/8 0=16 1=16 2=64
+Split                    lightfc_fusion.ncnn/splitncnn_1              1 2 lightfc_fusion.ncnn/8 lightfc_fusion.ncnn/9 lightfc_fusion.ncnn/10
+Pooling                  lightfc_fusion.ncnn/gap_5                    1 1 lightfc_fusion.ncnn/10 lightfc_fusion.ncnn/11 0=1 4=1
+Convolution              lightfc_fusion.ncnn/convrelu_0               1 1 lightfc_fusion.ncnn/11 lightfc_fusion.ncnn/12 0=64 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=4096 9=1
+Convolution              lightfc_fusion.ncnn/convsigmoid_1            1 1 lightfc_fusion.ncnn/12 lightfc_fusion.ncnn/13 0=64 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=4096 9=4
+Reshape                  lightfc_fusion.ncnn/reshape_12               1 1 lightfc_fusion.ncnn/13 lightfc_fusion.ncnn/14 0=1 1=1 2=-1
+BinaryOp                 lightfc_fusion.ncnn/mul_0                    2 1 lightfc_fusion.ncnn/9 lightfc_fusion.ncnn/14 lightfc_fusion.ncnn/15 0=2
+Split                    lightfc_fusion.ncnn/splitncnn_2              1 3 lightfc_fusion.ncnn/15 lightfc_fusion.ncnn/16 lightfc_fusion.ncnn/17 lightfc_fusion.ncnn/18
+ConvolutionDepthWise     lightfc_fusion.ncnn/convdw_15                1 1 lightfc_fusion.ncnn/18 lightfc_fusion.ncnn/19 0=64 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=64 7=64
+ConvolutionDepthWise     lightfc_fusion.ncnn/convdw_16                1 1 lightfc_fusion.ncnn/17 lightfc_fusion.ncnn/20 0=64 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=576 7=64
+BinaryOp                 lightfc_fusion.ncnn/add_1                    2 1 lightfc_fusion.ncnn/16 lightfc_fusion.ncnn/19 lightfc_fusion.ncnn/21 0=0
+BinaryOp                 lightfc_fusion.ncnn/add_2                    2 1 lightfc_fusion.ncnn/21 lightfc_fusion.ncnn/20 lightfc_fusion.ncnn/22 0=0
+Split                    lightfc_fusion.ncnn/splitncnn_3              1 2 lightfc_fusion.ncnn/22 lightfc_fusion.ncnn/23 lightfc_fusion.ncnn/24
+Convolution              lightfc_fusion.ncnn/conv_2                   1 1 lightfc_fusion.ncnn/24 lightfc_fusion.ncnn/25 0=128 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=8192
+GELU                     lightfc_fusion.ncnn/gelu_6                   1 1 lightfc_fusion.ncnn/25 lightfc_fusion.ncnn/26
+Convolution              lightfc_fusion.ncnn/conv_3                   1 1 lightfc_fusion.ncnn/26 lightfc_fusion.ncnn/27 0=64 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=8192
+BinaryOp                 lightfc_fusion.ncnn/add_3                    2 1 lightfc_fusion.ncnn/23 lightfc_fusion.ncnn/27 lightfc_fusion.ncnn/28 0=0
+Convolution              lightfc_fusion.ncnn/conv_4                   1 1 lightfc_fusion.ncnn/28 lightfc_fusion.ncnn/29 0=96 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=6144
+Concat                   lightfc_fusion.ncnn/cat_0                    2 1 lightfc_fusion.ncnn/29 lightfc_fusion.ncnn/2 fused_features 0=0
+Split lightfc_tracking/split_heads 1 3 fused_features score_features size_features offset_features
+Convolution              lightfc_score.ncnn/convrelu_0               1 1 score_features lightfc_score.ncnn/1 0=256 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=442368 9=1
+Split                    lightfc_score.ncnn/splitncnn_0              1 2 lightfc_score.ncnn/1 lightfc_score.ncnn/2 lightfc_score.ncnn/3
+Pooling                  lightfc_score.ncnn/gap_7                    1 1 lightfc_score.ncnn/3 lightfc_score.ncnn/4 0=1 4=1
+Convolution              lightfc_score.ncnn/convrelu_1               1 1 lightfc_score.ncnn/4 lightfc_score.ncnn/5 0=64 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=16384 9=1
+Convolution              lightfc_score.ncnn/convsigmoid_5            1 1 lightfc_score.ncnn/5 lightfc_score.ncnn/6 0=256 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=16384 9=4
+Reshape                  lightfc_score.ncnn/reshape_15               1 1 lightfc_score.ncnn/6 lightfc_score.ncnn/7 0=1 1=1 2=-1
+BinaryOp                 lightfc_score.ncnn/mul_0                    2 1 lightfc_score.ncnn/2 lightfc_score.ncnn/7 lightfc_score.ncnn/8 0=2
+Convolution              lightfc_score.ncnn/convrelu_2               1 1 lightfc_score.ncnn/8 lightfc_score.ncnn/9 0=128 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=294912 9=1
+Convolution              lightfc_score.ncnn/convrelu_3               1 1 lightfc_score.ncnn/9 lightfc_score.ncnn/10 0=64 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=73728 9=1
+Convolution              lightfc_score.ncnn/convrelu_4               1 1 lightfc_score.ncnn/10 lightfc_score.ncnn/11 0=32 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=18432 9=1
+Convolution              lightfc_score.ncnn/convsigmoid_6            1 1 lightfc_score.ncnn/11 lightfc_score.ncnn/12 0=1 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=32 9=4
+Clip                     lightfc_score.ncnn/clamp_16                 1 1 lightfc_score.ncnn/12 score_map 0=0.0001 1=0.9999
+Convolution              lightfc_size.ncnn/convrelu_0               1 1 size_features lightfc_size.ncnn/1 0=256 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=442368 9=1
+Split                    lightfc_size.ncnn/splitncnn_0              1 2 lightfc_size.ncnn/1 lightfc_size.ncnn/2 lightfc_size.ncnn/3
+Pooling                  lightfc_size.ncnn/gap_7                    1 1 lightfc_size.ncnn/3 lightfc_size.ncnn/4 0=1 4=1
+Convolution              lightfc_size.ncnn/convrelu_1               1 1 lightfc_size.ncnn/4 lightfc_size.ncnn/5 0=64 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=16384 9=1
+Convolution              lightfc_size.ncnn/convsigmoid_5            1 1 lightfc_size.ncnn/5 lightfc_size.ncnn/6 0=256 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=16384 9=4
+Reshape                  lightfc_size.ncnn/reshape_15               1 1 lightfc_size.ncnn/6 lightfc_size.ncnn/7 0=1 1=1 2=-1
+BinaryOp                 lightfc_size.ncnn/mul_0                    2 1 lightfc_size.ncnn/2 lightfc_size.ncnn/7 lightfc_size.ncnn/8 0=2
+Convolution              lightfc_size.ncnn/convrelu_2               1 1 lightfc_size.ncnn/8 lightfc_size.ncnn/9 0=128 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=294912 9=1
+Convolution              lightfc_size.ncnn/convrelu_3               1 1 lightfc_size.ncnn/9 lightfc_size.ncnn/10 0=64 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=73728 9=1
+Convolution              lightfc_size.ncnn/convrelu_4               1 1 lightfc_size.ncnn/10 lightfc_size.ncnn/11 0=32 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=18432 9=1
+Convolution              lightfc_size.ncnn/convsigmoid_6            1 1 lightfc_size.ncnn/11 lightfc_size.ncnn/12 0=2 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=64 9=4
+Clip                     lightfc_size.ncnn/clamp_16                 1 1 lightfc_size.ncnn/12 size_map 0=0.0001 1=0.9999
+Convolution              lightfc_offset.ncnn/convrelu_0               1 1 offset_features lightfc_offset.ncnn/1 0=256 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=442368 9=1
+Split                    lightfc_offset.ncnn/splitncnn_0              1 2 lightfc_offset.ncnn/1 lightfc_offset.ncnn/2 lightfc_offset.ncnn/3
+Pooling                  lightfc_offset.ncnn/gap_7                    1 1 lightfc_offset.ncnn/3 lightfc_offset.ncnn/4 0=1 4=1
+Convolution              lightfc_offset.ncnn/convrelu_1               1 1 lightfc_offset.ncnn/4 lightfc_offset.ncnn/5 0=64 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=16384 9=1
+Convolution              lightfc_offset.ncnn/convsigmoid_5            1 1 lightfc_offset.ncnn/5 lightfc_offset.ncnn/6 0=256 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=16384 9=4
+Reshape                  lightfc_offset.ncnn/reshape_14               1 1 lightfc_offset.ncnn/6 lightfc_offset.ncnn/7 0=1 1=1 2=-1
+BinaryOp                 lightfc_offset.ncnn/mul_0                    2 1 lightfc_offset.ncnn/2 lightfc_offset.ncnn/7 lightfc_offset.ncnn/8 0=2
+Convolution              lightfc_offset.ncnn/convrelu_2               1 1 lightfc_offset.ncnn/8 lightfc_offset.ncnn/9 0=128 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=294912 9=1
+Convolution              lightfc_offset.ncnn/convrelu_3               1 1 lightfc_offset.ncnn/9 lightfc_offset.ncnn/10 0=64 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=73728 9=1
+Convolution              lightfc_offset.ncnn/convrelu_4               1 1 lightfc_offset.ncnn/10 lightfc_offset.ncnn/11 0=32 1=3 11=3 12=1 13=1 14=1 2=1 3=1 4=1 5=1 6=18432 9=1
+Convolution              lightfc_offset.ncnn/conv_6                   1 1 lightfc_offset.ncnn/11 offset_map 0=2 1=1 11=1 12=1 13=1 14=0 2=1 3=1 4=0 5=1 6=64
