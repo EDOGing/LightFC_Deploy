@@ -1,0 +1,69 @@
+{
+  "deployment": {
+    "baseline": "FP32 ncnn (pnnx fp16=0)",
+    "quantized": "native ncnn INT8 with explicit FP32 safety boundaries",
+    "int8_graphs": [
+      "template backbone",
+      "search backbone",
+      "score middle convolutions",
+      "size middle convolutions",
+      "offset middle convolutions"
+    ],
+    "fp32_graphs_or_boundaries": [
+      "pixel-wise correlation/fusion",
+      "SE residual mixing",
+      "final score/size/offset predictors"
+    ]
+  },
+  "accuracy": {
+    "fp32": {
+      "mean_iou": 0.524735195044729,
+      "success_auc": 0.53125,
+      "precision_20px": 0.4375,
+      "mean_center_error_px": 111.6439213025186
+    },
+    "int8": {
+      "mean_iou": 0.5203947294888541,
+      "success_auc": 0.5275297619047619,
+      "precision_20px": 0.40625,
+      "mean_center_error_px": 116.55692125495477
+    },
+    "int8_minus_fp32": {
+      "mean_iou": -0.004340465555874862,
+      "success_auc": -0.0037202380952381375,
+      "precision_20px": -0.03125,
+      "mean_center_error_px": 4.9129999524361665
+    },
+    "pair_count": 64
+  },
+  "performance": {
+    "fp32": {
+      "template_latency_ms": 0.4688225001154933,
+      "tracking_latency_ms": 3.9968195000255946,
+      "tracking_fps": 250.19893943011343,
+      "working_set_increment_mib": 95.34765625,
+      "private_memory_increment_mib": 93.8046875,
+      "model_size_mib": 14.093772888183594
+    },
+    "int8": {
+      "template_latency_ms": 0.8039849999477156,
+      "tracking_latency_ms": 5.056767499918351,
+      "tracking_fps": 197.75479098379478,
+      "working_set_increment_mib": 87.95703125,
+      "private_memory_increment_mib": 99.17578125,
+      "model_size_mib": 5.103477478027344
+    },
+    "int8_vs_fp32": {
+      "tracking_speedup": 0.7903902048275167,
+      "model_size_reduction_percent": 63.78913213291406,
+      "working_set_reduction_percent": 7.751239296980616,
+      "private_memory_reduction_percent": -5.725826601149331
+    },
+    "settings": {
+      "warmup": 20,
+      "runs": 200,
+      "threads": 4
+    }
+  },
+  "note": "Held-out GOT-10k train frame pairs; not the official GOT-10k test set."
+}

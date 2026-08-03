@@ -42,4 +42,20 @@ apk文件在“./TrackingApp/TrackingApp.apk”
 
 ---
 
+## LightFC_web
+
+一套面向 CPU 的 LightFC 单目标跟踪 Web Demo、模型转换与量化部署项目。
+
+主要功能：
+
+- 支持本地视频和 RTSP 实时视频流目标跟踪
+- 支持在网页中框选目标、实时预览及导出跟踪结果
+- 支持 PyTorch、ONNX FP32 和 ONNX INT8 推理后端
+- 支持 PTH 模型转换为 ONNX 和 ncnn
+- 提供 ONNX W8A8 量化及 ncnn FP32/INT8 量化与性能对比
+
+[查看项目详细说明](./LightFC_web/README.md)
+
+---
+
 后续项目将在此处分别介绍。

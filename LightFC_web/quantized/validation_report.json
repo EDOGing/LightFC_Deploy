@@ -1,0 +1,97 @@
+{
+  "backbone_graph": {
+    "opset": 12,
+    "Constant": 52,
+    "QuantizeLinear": 34,
+    "QLinearConv": 39,
+    "DequantizeLinear": 38,
+    "Clip": 26,
+    "Add": 8
+  },
+  "tracking_graph": {
+    "opset": 12,
+    "Constant": 62,
+    "QuantizeLinear": 59,
+    "Reshape": 3,
+    "QLinearConv": 67,
+    "Transpose": 1,
+    "DequantizeLinear": 66,
+    "Clip": 28,
+    "Add": 12,
+    "MatMul": 1,
+    "GlobalAveragePool": 4,
+    "Relu": 16,
+    "Sigmoid": 6,
+    "Mul": 6,
+    "Div": 1,
+    "Erf": 1,
+    "Concat": 1
+  },
+  "backbone_error": {
+    "output_0_mae": 0.07291825860738754
+  },
+  "tracking_error": {
+    "output_0_mae": 0.0007991067250259221,
+    "output_1_mae": 0.0108443982899189,
+    "output_2_mae": 0.051368892192840576
+  },
+  "end_to_end_error": {
+    "output_0_mae": 0.0009196962928399444,
+    "output_1_mae": 0.010863063856959343,
+    "output_2_mae": 0.05163182318210602
+  },
+  "tracking_accuracy": {
+    "fp32": {
+      "mean_iou": 0.7072620391845703,
+      "success_auc": 0.703125,
+      "precision_20px": 0.640625,
+      "mean_center_error_px": 69.61508178710938
+    },
+    "int8": {
+      "mean_iou": 0.7006986141204834,
+      "success_auc": 0.6979166666666666,
+      "precision_20px": 0.640625,
+      "mean_center_error_px": 69.47377014160156
+    },
+    "delta_int8_minus_fp32": {
+      "mean_iou": -0.006563425064086914,
+      "success_auc": -0.00520833333333337,
+      "precision_20px": 0.0,
+      "mean_center_error_px": -0.1413116455078125
+    },
+    "evaluation_type": "held-out GOT-10k train frame pairs; not official GOT-10k test",
+    "pair_count": 64
+  },
+  "performance_comparison": {
+    "fp32": {
+      "template_latency_ms": 0.35216600001149345,
+      "tracking_latency_ms": 2.1347689999674913,
+      "tracking_fps": 468.4347580535544,
+      "working_set_increment_mib": 53.05078125,
+      "peak_working_set_increment_mib": 53.05078125,
+      "private_memory_increment_mib": 60.8046875,
+      "model_size_mib": 14.15628433227539
+    },
+    "int8": {
+      "template_latency_ms": 0.49723100004484877,
+      "tracking_latency_ms": 2.0818680000229506,
+      "tracking_fps": 480.33785042518355,
+      "working_set_increment_mib": 35.83984375,
+      "peak_working_set_increment_mib": 35.83984375,
+      "private_memory_increment_mib": 51.52734375,
+      "model_size_mib": 3.9067201614379883
+    },
+    "int8_vs_fp32": {
+      "tracking_speedup": 1.0254103525987035,
+      "tracking_latency_reduction_percent": 2.478066710981197,
+      "model_size_reduction_percent": 72.40292671622224,
+      "working_set_reduction_percent": 32.44238274059348,
+      "private_memory_reduction_percent": 15.257612745727867
+    },
+    "settings": {
+      "warmup": 20,
+      "runs": 200,
+      "intra_op_threads": "ORT default"
+    }
+  }
+}

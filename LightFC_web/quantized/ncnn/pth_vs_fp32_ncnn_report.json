@@ -1,0 +1,120 @@
+{
+  "comparison_scope": {
+    "pth": "Original training checkpoint and original PyTorch inference graph",
+    "ncnn_fp32": "AdaRound-adjusted weights exported by pnnx with fp16=0",
+    "storage_note": "PTH size includes optimizer and training metadata; ncnn size includes deployment param/bin only."
+  },
+  "storage": {
+    "original_training_checkpoint_mib": 58.335036277770996,
+    "pytorch_deployed_state_dict_mib": 12.259392738342285,
+    "ncnn_six_graph_package_mib": 14.093772888183594,
+    "ncnn_minimal_shared_backbone_package_mib": 12.048971176147461,
+    "minimal_package_note": "template and search backbone files are byte-identical, so C++ may share one pair."
+  },
+  "accuracy": {
+    "pth": {
+      "mean_iou": 0.5247295158551121,
+      "success_auc": 0.5319940476190477,
+      "precision_20px": 0.4375,
+      "mean_center_error_px": 106.91975727186536
+    },
+    "ncnn_fp32": {
+      "mean_iou": 0.524735195044729,
+      "success_auc": 0.53125,
+      "precision_20px": 0.4375,
+      "mean_center_error_px": 111.6439213025186
+    },
+    "ncnn_minus_pth": {
+      "mean_iou": 5.679189616913938e-06,
+      "success_auc": -0.0007440476190476719,
+      "precision_20px": 0.0,
+      "mean_center_error_px": 4.724164030653242
+    },
+    "pair_count": 64
+  },
+  "performance": {
+    "pth": {
+      "template_latency_ms": 2.6839700000709854,
+      "tracking_latency_ms": 8.84245050008758,
+      "tracking_fps": 113.09082250334288,
+      "working_set_increment_mib": 102.0390625,
+      "private_memory_increment_mib": 106.4453125,
+      "model_size_mib": 58.335036277770996,
+      "samples": [
+        {
+          "template_latency_ms": 2.6839700000709854,
+          "tracking_latency_ms": 8.904892999998992,
+          "tracking_fps": 112.29781200067347,
+          "working_set_increment_mib": 102.6484375,
+          "private_memory_increment_mib": 107.17578125,
+          "model_size_mib": 58.335036277770996
+        },
+        {
+          "template_latency_ms": 2.8638584999134764,
+          "tracking_latency_ms": 8.84245050008758,
+          "tracking_fps": 113.09082250334288,
+          "working_set_increment_mib": 102.0390625,
+          "private_memory_increment_mib": 106.4453125,
+          "model_size_mib": 58.335036277770996
+        },
+        {
+          "template_latency_ms": 2.672168499993859,
+          "tracking_latency_ms": 8.608058499958133,
+          "tracking_fps": 116.17021422482941,
+          "working_set_increment_mib": 101.1484375,
+          "private_memory_increment_mib": 106.40625,
+          "model_size_mib": 58.335036277770996
+        }
+      ]
+    },
+    "ncnn_fp32": {
+      "template_latency_ms": 0.48836200003279373,
+      "tracking_latency_ms": 4.061886999988928,
+      "tracking_fps": 246.19099448180754,
+      "working_set_increment_mib": 95.01953125,
+      "private_memory_increment_mib": 93.40234375,
+      "model_size_mib": 14.093772888183594,
+      "samples": [
+        {
+          "template_latency_ms": 0.49640350000117905,
+          "tracking_latency_ms": 4.061886999988928,
+          "tracking_fps": 246.19099448180754,
+          "working_set_increment_mib": 95.01953125,
+          "private_memory_increment_mib": 93.40234375,
+          "model_size_mib": 14.093772888183594
+        },
+        {
+          "template_latency_ms": 0.48836200003279373,
+          "tracking_latency_ms": 4.220346500078449,
+          "tracking_fps": 236.9473691274903,
+          "working_set_increment_mib": 94.79296875,
+          "private_memory_increment_mib": 93.16796875,
+          "model_size_mib": 14.093772888183594
+        },
+        {
+          "template_latency_ms": 0.47622149999369867,
+          "tracking_latency_ms": 4.051938999909908,
+          "tracking_fps": 246.79542313500633,
+          "working_set_increment_mib": 95.14453125,
+          "private_memory_increment_mib": 93.49609375,
+          "model_size_mib": 14.093772888183594
+        }
+      ]
+    },
+    "ncnn_vs_pth": {
+      "tracking_speedup": 2.1769316822727176,
+      "tracking_latency_reduction_percent": 54.06378582556162,
+      "checkpoint_to_ncnn_size_reduction_percent": 75.8399517897375,
+      "working_set_reduction_percent": 6.879258862261695,
+      "private_memory_reduction_percent": 12.253211009174315
+    },
+    "settings": {
+      "warmup": 20,
+      "runs": 200,
+      "threads": 4,
+      "independent_process_repeats": 3,
+      "aggregate": "median"
+    }
+  },
+  "note": "Held-out GOT-10k train frame pairs; not the official GOT-10k test set."
+}

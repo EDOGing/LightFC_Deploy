@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LightFC · CPU 视频目标跟踪</title>
+  <style>
+    :root{--bg:#08120f;--panel:#101d19;--panel2:#14251f;--text:#e7f6ef;--muted:#91aa9f;--accent:#31d28b;--accent2:#1b9e67;--danger:#ff746c;--border:#294038}
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(circle at 15% 5%,#173629 0,transparent 34%),linear-gradient(145deg,#07100d,#0d1714 58%,#0b1814);font:15px/1.55 Inter,"Microsoft YaHei",system-ui,sans-serif}
+    main{width:min(1100px,calc(100% - 32px));margin:36px auto 60px}.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:22px}.eyebrow{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}h1{font-size:clamp(30px,5vw,56px);line-height:1.02;margin:8px 0 10px;letter-spacing:-.04em}.lead{color:var(--muted);margin:0;max-width:680px}.badge{border:1px solid #327a5b;color:#baf3d7;background:#173b2c;padding:8px 13px;border-radius:99px;white-space:nowrap;font-weight:700}
+    .card{background:linear-gradient(150deg,rgba(20,37,31,.96),rgba(13,26,22,.96));border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:0 24px 70px rgba(0,0,0,.27)}.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.file{position:relative;flex:1;min-width:230px;padding:10px 13px;border:1px dashed #456357;border-radius:12px;background:#0d1915;color:var(--muted)}input[type=file]{width:100%;color:var(--muted)}select{border:1px solid #456357;border-radius:11px;padding:10px 12px;background:#0d1915;color:var(--text);font:inherit}button,.button{appearance:none;border:0;border-radius:11px;padding:11px 16px;background:var(--accent);color:#062417;font:inherit;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}button:hover,.button:hover{filter:brightness(1.08)}button:disabled{opacity:.42;cursor:not-allowed}.secondary{background:#243a32;color:var(--text);border:1px solid #3c574d}.danger{background:transparent;color:var(--danger);border:1px solid #79413e}.meta{color:var(--muted);margin:14px 0 8px;min-height:23px}
+    .stage{display:none;position:relative;border-radius:14px;overflow:hidden;background:#030706;border:1px solid var(--border);user-select:none;touch-action:none}canvas{display:block;width:100%;height:auto;max-height:66vh;object-fit:contain;cursor:crosshair}.hint{color:var(--muted);margin:11px 2px 16px}.bbox{color:var(--accent);font-family:ui-monospace,Consolas,monospace}.progress-wrap{display:none;margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}progress{width:100%;height:10px;border:0;border-radius:20px;overflow:hidden;background:#25372f}progress::-webkit-progress-bar{background:#25372f}progress::-webkit-progress-value{background:linear-gradient(90deg,var(--accent2),var(--accent))}progress::-moz-progress-bar{background:var(--accent)}.status-row{display:flex;justify-content:space-between;gap:14px;color:var(--muted);margin:10px 0 14px}.actions{display:flex;flex-wrap:wrap;gap:10px}.error{color:#ff9b94;white-space:pre-wrap;margin:12px 0 0}.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.note{border:1px solid var(--border);border-radius:12px;padding:12px;color:var(--muted);background:rgba(8,18,15,.6)}.note strong{display:block;color:var(--text);margin-bottom:3px}
+    @media(max-width:700px){main{width:min(100% - 20px,1100px);margin-top:22px}.hero{display:block}.badge{display:inline-flex;margin-top:14px}.card{padding:14px}.status-row{display:block}.notes{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <div><div class="eyebrow">Single Object Tracking</div><h1>LightFC 视频目标跟踪</h1><p class="lead">上传视频，在首帧拖动框选目标；模型会在后台使用 CPU 逐帧跟踪，并实时显示结果。</p></div>
+    <span class="badge">● CPU ONLY</span>
+  </header>
+  <section class="card">
+    <div class="toolbar">
+      <label class="file"><input id="videoFile" type="file" accept="video/*"></label>
+      <select id="engineSelect" title="推理引擎"><option value="pytorch">PyTorch (.pth.tar)</option><option value="onnx">ONNX Runtime（拆分模型/模板缓存）</option></select>
+      <button id="uploadBtn">读取视频首帧</button>
+      <button id="clearBtn" class="secondary" disabled>清除框选</button>
+      <button id="trackBtn" disabled>开始跟踪</button>
+    </div>
+    <div id="meta" class="meta">等待选择视频</div>
+    <div id="stage" class="stage"><canvas id="canvas"></canvas></div>
+    <p id="hint" class="hint">选择视频后，用鼠标在首帧上按住并拖动，框住要跟踪的目标。</p>
+    <div id="progressWrap" class="progress-wrap">
+      <progress id="progress" max="1" value="0"></progress>
+      <div class="status-row"><span id="status">等待开始</span><span><strong id="fps" style="color:var(--accent)">-- FPS</strong> · <span id="timing"></span></span></div>
+      <div class="actions">
+        <button id="cancelBtn" class="danger">停止任务</button>
+        <a id="videoLink" class="button" hidden>下载跟踪视频</a>
+        <a id="csvLink" class="button secondary" hidden>下载坐标 CSV</a>
+      </div>
+      <p id="error" class="error"></p>
+    </div>
+    <div class="notes">
+      <div class="note"><strong>首帧框选</strong>坐标按原始分辨率计算，可精确选择目标。</div>
+      <div class="note"><strong>实时反馈</strong>显示已处理帧数、速度、耗时和预计剩余时间。</div>
+      <div class="note"><strong>结果导出</strong>保存带框 MP4，以及每一帧的坐标与置信度 CSV。</div>
+    </div>
+  </section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const canvas=$('canvas'),ctx=canvas.getContext('2d');
+let image=null,videoId=null,box=null,dragStart=null,jobId=null,statusTimer=null,previewTimer=null,previewFrame=-1,previewBusy=false,previewActive=false;
+function fmtTime(value){if(value==null||!Number.isFinite(value))return '';const seconds=Math.round(value);return `${Math.floor(seconds/60)}分${seconds%60}秒`}
+function draw(){if(!image)return;ctx.drawImage(image,0,0,canvas.width,canvas.height);if(box){ctx.strokeStyle='#31d28b';ctx.lineWidth=Math.max(2,canvas.width/500);ctx.strokeRect(box.x,box.y,box.width,box.height);ctx.fillStyle='#31d28b';ctx.font=`${Math.max(14,canvas.width/55)}px sans-serif`;ctx.fillText('目标',box.x+5,Math.max(20,box.y-7))}}
+function point(event){const rect=canvas.getBoundingClientRect();return{x:(event.clientX-rect.left)*canvas.width/rect.width,y:(event.clientY-rect.top)*canvas.height/rect.height}}
+function resetJob(){clearTimeout(statusTimer);clearTimeout(previewTimer);previewActive=false;previewBusy=false;previewFrame=-1;jobId=null;$('progressWrap').style.display='none';$('cancelBtn').disabled=false;$('videoLink').hidden=true;$('csvLink').hidden=true;$('error').textContent=''}
+canvas.addEventListener('pointerdown',event=>{if(!image||jobId)return;dragStart=point(event);box=null;canvas.setPointerCapture(event.pointerId);draw()});
+canvas.addEventListener('pointermove',event=>{if(!dragStart)return;const p=point(event);box={x:Math.min(p.x,dragStart.x),y:Math.min(p.y,dragStart.y),width:Math.abs(p.x-dragStart.x),height:Math.abs(p.y-dragStart.y)};draw()});
+canvas.addEventListener('pointerup',()=>{dragStart=null;if(box&&box.width>=2&&box.height>=2){$('trackBtn').disabled=false;$('clearBtn').disabled=false;$('hint').innerHTML=`已框选：<span class="bbox">x=${box.x.toFixed(1)}, y=${box.y.toFixed(1)}, w=${box.width.toFixed(1)}, h=${box.height.toFixed(1)}</span>`}else{box=null;$('trackBtn').disabled=true;draw()}});
+$('clearBtn').onclick=()=>{box=null;draw();$('trackBtn').disabled=true;$('clearBtn').disabled=true;$('hint').textContent='请重新拖动框选目标。'};
+$('uploadBtn').onclick=async()=>{const file=$('videoFile').files[0];if(!file){alert('请先选择视频。');return}resetJob();const form=new FormData();form.append('video',file);$('uploadBtn').disabled=true;$('uploadBtn').textContent='上传并读取中…';try{const response=await fetch('/api/upload',{method:'POST',body:form});const data=await response.json();if(!response.ok)throw Error(data.error||'上传失败');videoId=data.video_id;box=null;image=new Image();image.onload=()=>{canvas.width=data.width;canvas.height=data.height;draw();$('stage').style.display='block';$('meta').textContent=`${data.width}×${data.height} · ${data.fps.toFixed(2)} FPS · ${data.frame_count||'未知'} 帧`;$('hint').textContent='按住鼠标并拖动，完整框住首帧中的目标。';$('clearBtn').disabled=true;$('trackBtn').disabled=true};image.src=data.first_frame_url+'?t='+Date.now()}catch(error){alert(error.message)}finally{$('uploadBtn').disabled=false;$('uploadBtn').textContent='读取视频首帧'}};
+$('trackBtn').onclick=async()=>{if(!videoId||!box)return;const backend=$('engineSelect').value;const response=await fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({video_id:videoId,bbox:box,backend})});const data=await response.json();if(!response.ok){alert(data.error||'启动失败');return}jobId=data.job_id;previewFrame=-1;previewActive=true;$('trackBtn').disabled=true;$('clearBtn').disabled=true;$('uploadBtn').disabled=true;$('engineSelect').disabled=true;$('progressWrap').style.display='block';$('videoLink').hidden=true;$('csvLink').hidden=true;$('error').textContent='';pollStatus();pollPreview()};
+$('cancelBtn').onclick=()=>jobId&&fetch('/api/cancel/'+jobId,{method:'POST'});
+async function pollPreview(once=false){if(!jobId||previewBusy||(!previewActive&&!once))return;previewBusy=true;try{const response=await fetch(`/api/preview/${jobId}?after=${previewFrame}`,{cache:'no-store'});if(response.status===200){const next=Number(response.headers.get('X-Frame-Index'));const bitmap=await createImageBitmap(await response.blob());ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();previewFrame=next}}catch(error){console.debug('preview unavailable',error)}finally{previewBusy=false;if(previewActive&&!once)previewTimer=setTimeout(pollPreview,250)}}
+async function pollStatus(){try{const response=await fetch('/api/status/'+jobId);const data=await response.json();if(!response.ok)throw Error(data.error);$('progress').value=data.progress||0;const engine=data.backend==='onnx'?'ONNX':'PyTorch';$('status').textContent=(data.total_frames?`${data.message}（${data.current_frame}/${data.total_frames}）`:data.message)+` · ${engine}`;$('fps').textContent=data.tracking_fps>0?`${data.tracking_fps.toFixed(2)} FPS`:'-- FPS';$('timing').textContent=`已用 ${fmtTime(data.elapsed_seconds)}${data.eta_seconds!=null?' · 预计剩余 '+fmtTime(data.eta_seconds):''}`;$('error').textContent=data.error||'';if(['completed','cancelled','failed'].includes(data.state)){if(data.video_url){$('videoLink').href=data.video_url;$('videoLink').hidden=false}if(data.csv_url){$('csvLink').href=data.csv_url;$('csvLink').hidden=false}$('cancelBtn').disabled=true;$('uploadBtn').disabled=false;$('engineSelect').disabled=false;previewActive=false;clearTimeout(previewTimer);setTimeout(()=>pollPreview(true),100);return}}catch(error){$('error').textContent=error.message}statusTimer=setTimeout(pollStatus,1000)}
+</script>
+</body>
+</html>

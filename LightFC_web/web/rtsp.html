@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LightFC · RTSP 实时跟踪</title>
+  <style>
+    :root{--bg:#07100d;--panel:#101d19;--panel2:#14251f;--text:#e9f7f0;--muted:#91aa9f;--accent:#31d28b;--danger:#ff746c;--warn:#ffcb6b;--border:#294038}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(circle at 12% 0,#18392b 0,transparent 32%),linear-gradient(145deg,#06100c,#0c1713 58%,#0a1713);font:15px/1.5 Inter,"Microsoft YaHei",system-ui,sans-serif}
+    main{width:min(1240px,calc(100% - 30px));margin:26px auto 50px}.top{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin-bottom:18px}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:800}h1{font-size:clamp(28px,4vw,48px);line-height:1.05;margin:7px 0 8px;letter-spacing:-.035em}.lead{margin:0;color:var(--muted)}.cpu{padding:7px 12px;border:1px solid #367b5d;border-radius:99px;background:#15392a;color:#baf3d7;font-weight:800;white-space:nowrap}
+    .layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:16px}.card{border:1px solid var(--border);border-radius:18px;background:linear-gradient(150deg,rgba(20,37,31,.97),rgba(12,25,21,.97));box-shadow:0 22px 70px rgba(0,0,0,.26)}.viewer-card{padding:14px}.connect-row{display:flex;gap:9px;margin-bottom:12px}.url{min-width:0;flex:1;border:1px solid #395249;background:#091510;color:var(--text);border-radius:11px;padding:11px 13px;font:inherit;outline:none}.url:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(49,210,139,.12)}button,.button{border:0;border-radius:10px;padding:10px 14px;background:var(--accent);color:#052417;font:inherit;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}button:hover,.button:hover{filter:brightness(1.08)}button:disabled{opacity:.4;cursor:not-allowed}.secondary{background:#263c34;color:var(--text);border:1px solid #3b584d}.danger{background:transparent;color:var(--danger);border:1px solid #75413e}
+    .screen{position:relative;overflow:hidden;min-height:360px;display:flex;align-items:center;justify-content:center;border:1px solid #253a32;border-radius:13px;background:#020504}.stream{display:block;width:100%;height:auto;min-height:360px;object-fit:contain;color:transparent}.screen.ready,.screen.ready .stream{min-height:0}.overlay{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}.empty{position:absolute;pointer-events:none;text-align:center;color:#6f887e}.empty strong{display:block;color:#b7cdc3;font-size:18px;margin-bottom:4px}.hint{min-height:24px;color:var(--muted);margin:10px 2px 0}.hint code{color:var(--accent)}
+    .side{padding:17px;align-self:start}.status-head{display:flex;align-items:center;gap:9px;margin-bottom:14px}.dot{width:10px;height:10px;border-radius:50%;background:#64766f;box-shadow:0 0 0 4px rgba(100,118,111,.12)}.dot.live,.dot.tracking{background:var(--accent);box-shadow:0 0 0 4px rgba(49,210,139,.13)}.dot.connecting,.dot.reconnecting,.dot.initializing{background:var(--warn);box-shadow:0 0 0 4px rgba(255,203,107,.13)}.status-title{font-weight:800}.message{color:var(--muted);font-size:13px;margin-top:2px}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.metric{padding:11px;border:1px solid var(--border);border-radius:11px;background:#0b1713}.metric span{display:block;color:var(--muted);font-size:11px}.metric strong{font-size:18px}.controls{display:grid;gap:9px}.controls .row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.engine{width:100%;border:1px solid #3b584d;border-radius:10px;padding:10px 12px;background:#0b1713;color:var(--text);font:inherit}.error{color:#ff9a94;white-space:pre-wrap;font-size:13px;margin:12px 0 0}.tip{border-top:1px solid var(--border);margin-top:15px;padding-top:14px;color:var(--muted);font-size:13px}.tip strong{color:var(--text)}
+    @media(max-width:850px){.layout{grid-template-columns:1fr}.side{order:-1}.metrics{grid-template-columns:repeat(4,1fr)}.screen,.stream{min-height:240px}}@media(max-width:600px){main{width:min(100% - 18px,1240px);margin-top:18px}.top{display:block}.cpu{display:inline-flex;margin-top:12px}.connect-row{flex-wrap:wrap}.url{flex-basis:100%}.metrics{grid-template-columns:1fr 1fr}.viewer-card{padding:9px}}
+  </style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <div><div class="eyebrow">Live Camera Tracking</div><h1>LightFC RTSP 实时跟踪</h1><p class="lead">连接摄像机，在实时画面上拖动框选目标，使用 CPU 持续跟踪。</p></div>
+    <div class="cpu">● CPU ONLY</div>
+  </header>
+  <div class="layout">
+    <section class="card viewer-card">
+      <div class="connect-row">
+        <input id="url" class="url" spellcheck="false" placeholder="rtsp://摄像机地址/视频流">
+        <button id="connectBtn">连接摄像机</button>
+        <button id="disconnectBtn" class="danger" disabled>断开</button>
+      </div>
+      <div id="screen" class="screen">
+        <img id="stream" class="stream" alt="RTSP 实时画面">
+        <canvas id="overlay" class="overlay"></canvas>
+        <div id="empty" class="empty"><strong>等待连接 RTSP 摄像机</strong>连接成功后，直接在画面上拖动框选目标</div>
+      </div>
+      <p id="hint" class="hint">尚未连接。</p>
+    </section>
+    <aside class="card side">
+      <div class="status-head"><span id="dot" class="dot"></span><div><div id="state" class="status-title">未连接</div><div id="message" class="message">尚未连接摄像机</div></div></div>
+      <div class="metrics">
+        <div class="metric"><span>画面尺寸</span><strong id="resolution">--</strong></div>
+        <div class="metric"><span>视频帧率</span><strong id="sourceFps">--</strong></div>
+        <div class="metric"><span>推理帧率</span><strong id="inferenceFps">--</strong></div>
+        <div class="metric"><span>置信度</span><strong id="confidence">--</strong></div>
+        <div class="metric"><span>处理帧数</span><strong id="frames">0</strong></div>
+      </div>
+      <div class="controls">
+        <select id="engineSelect" class="engine" title="推理引擎"><option value="pytorch">PyTorch</option><option value="onnx">ONNX FP32</option><option value="onnx_int8">ONNX INT8</option></select>
+        <button id="trackBtn" disabled>开始跟踪所选目标</button>
+        <div class="row"><button id="clearBtn" class="secondary" disabled>清除框选</button><button id="cancelBtn" class="danger" disabled>取消跟踪</button></div>
+        <a id="snapshotBtn" class="button secondary" href="/api/snapshot" download>保存当前截图</a>
+      </div>
+      <p id="error" class="error"></p>
+      <div class="tip"><strong>操作提示</strong><br>目标完全进入画面后再框选。目标丢失、遮挡过久或需要更换目标时，点击“取消跟踪”，然后重新拖框即可。</div>
+    </aside>
+  </div>
+</main>
+<script>
+const $=id=>document.getElementById(id),canvas=$('overlay'),ctx=canvas.getContext('2d');
+let box=null,start=null,connected=false,tracking=false,lastFrameSize='';
+const stateNames={disconnected:'未连接',connecting:'连接中',reconnecting:'正在重连',live:'实时画面',initializing:'初始化目标',tracking:'正在跟踪'};
+function setCanvasSize(width,height){if(!width||!height)return;const key=width+'x'+height;if(key===lastFrameSize)return;lastFrameSize=key;canvas.width=width;canvas.height=height;box=null;drawOverlay()}
+function drawOverlay(){ctx.clearRect(0,0,canvas.width,canvas.height);if(!box)return;ctx.strokeStyle='#31d28b';ctx.lineWidth=Math.max(2,canvas.width/500);ctx.strokeRect(box.x,box.y,box.width,box.height);ctx.fillStyle='rgba(49,210,139,.18)';ctx.fillRect(box.x,box.y,box.width,box.height);ctx.fillStyle='#31d28b';ctx.font=`${Math.max(14,canvas.width/55)}px sans-serif`;ctx.fillText('待跟踪目标',box.x+5,Math.max(20,box.y-7))}
+function point(event){const rect=canvas.getBoundingClientRect();return{x:(event.clientX-rect.left)*canvas.width/rect.width,y:(event.clientY-rect.top)*canvas.height/rect.height}}
+canvas.addEventListener('pointerdown',event=>{if(!connected||tracking||!canvas.width)return;start=point(event);box=null;canvas.setPointerCapture(event.pointerId);drawOverlay()});
+canvas.addEventListener('pointermove',event=>{if(!start)return;const p=point(event);box={x:Math.min(start.x,p.x),y:Math.min(start.y,p.y),width:Math.abs(start.x-p.x),height:Math.abs(start.y-p.y)};drawOverlay()});
+canvas.addEventListener('pointerup',()=>{start=null;if(box&&box.width>=2&&box.height>=2){$('trackBtn').disabled=false;$('clearBtn').disabled=false;$('hint').innerHTML=`已选择：<code>x=${box.x.toFixed(1)}, y=${box.y.toFixed(1)}, w=${box.width.toFixed(1)}, h=${box.height.toFixed(1)}</code>`}else{box=null;$('trackBtn').disabled=true;drawOverlay()}});
+async function post(path,data){const response=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:data?JSON.stringify(data):'{}'});const result=await response.json();if(!response.ok)throw Error(result.error||'操作失败');return result}
+$('connectBtn').onclick=async()=>{const url=$('url').value.trim();if(!url){alert('请输入 RTSP 地址。');return}$('connectBtn').disabled=true;$('error').textContent='';$('screen').classList.remove('ready');try{await post('/api/connect',{url});connected=true;tracking=false;box=null;drawOverlay();$('stream').src='/api/stream?t='+Date.now();$('empty').style.display='none';$('disconnectBtn').disabled=false;$('hint').textContent='正在等待第一帧画面…'}catch(error){$('error').textContent=error.message;$('connectBtn').disabled=false}};
+$('disconnectBtn').onclick=async()=>{await post('/api/disconnect');connected=false;tracking=false;box=null;drawOverlay();$('stream').removeAttribute('src');$('screen').classList.remove('ready');$('empty').style.display='block';$('connectBtn').disabled=false;$('disconnectBtn').disabled=true;$('trackBtn').disabled=true;$('clearBtn').disabled=true;$('cancelBtn').disabled=true;$('hint').textContent='已断开。'};
+$('trackBtn').onclick=async()=>{if(!box)return;try{await post('/api/track',{bbox:box,backend:$('engineSelect').value});tracking=true;box=null;drawOverlay();$('engineSelect').disabled=true;$('trackBtn').disabled=true;$('clearBtn').disabled=true;$('cancelBtn').disabled=false;$('hint').textContent='目标模板初始化中…'}catch(error){$('error').textContent=error.message}};
+$('clearBtn').onclick=()=>{box=null;drawOverlay();$('trackBtn').disabled=true;$('clearBtn').disabled=true;$('hint').textContent='请重新拖动框选目标。'};
+$('cancelBtn').onclick=async()=>{await post('/api/cancel');tracking=false;box=null;drawOverlay();$('engineSelect').disabled=false;$('cancelBtn').disabled=true;$('trackBtn').disabled=true;$('clearBtn').disabled=true;$('hint').textContent='跟踪已取消，请在实时画面上重新框选目标。'};
+async function loadConfig(){try{const response=await fetch('/api/config');const data=await response.json();$('url').value=data.default_url;if(!data.backends.onnx)$('engineSelect').querySelector('option[value="onnx"]').disabled=true;if(!data.backends.onnx_int8)$('engineSelect').querySelector('option[value="onnx_int8"]').disabled=true;if(!data.backends.pytorch)$('engineSelect').querySelector('option[value="pytorch"]').disabled=true}catch(error){console.debug(error)}}
+async function poll(){try{const response=await fetch('/api/status',{cache:'no-store'});const data=await response.json();connected=!['disconnected'].includes(data.state);tracking=Boolean(data.tracking||data.tracking_requested);$('dot').className='dot '+data.state;const engine=data.backend==='onnx_int8'?'ONNX INT8':data.backend==='onnx'?'ONNX FP32':'PyTorch';$('state').textContent=(stateNames[data.state]||data.state)+(tracking?` · ${engine}`:'');$('message').textContent=data.message||'';$('resolution').textContent=data.width?`${data.width}×${data.height}`:'--';$('sourceFps').textContent=data.source_fps>0?`${data.source_fps.toFixed(1)} FPS`:'--';$('inferenceFps').textContent=data.inference_fps>0?`${data.inference_fps.toFixed(1)} FPS`:'--';$('confidence').textContent=data.confidence!=null?Number(data.confidence).toFixed(3):'--';$('frames').textContent=data.frame_number||0;$('error').textContent=data.error||'';setCanvasSize(data.width,data.height);if(data.has_frame){$('screen').classList.add('ready');$('empty').style.display='none';if(!tracking&&!box)$('hint').textContent='在画面上按住并拖动，框选需要跟踪的目标。'}$('connectBtn').disabled=connected;$('disconnectBtn').disabled=!connected;$('cancelBtn').disabled=!tracking;$('engineSelect').disabled=tracking;if(!tracking&&box)$('trackBtn').disabled=false;if(data.state==='reconnecting'){$('hint').textContent='视频流中断，系统正在自动重连；重连后请重新框选。'}}catch(error){$('error').textContent=error.message}setTimeout(poll,500)}
+loadConfig();poll();
+</script>
+</body>
+</html>

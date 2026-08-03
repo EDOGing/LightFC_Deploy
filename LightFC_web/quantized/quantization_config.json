@@ -1,0 +1,27 @@
+{
+  "activation_strategy": "C",
+  "percentile": 99.99,
+  "mse_percentile_min": 99.0,
+  "mse_percentile_max": 100.0,
+  "mse_candidates": 41,
+  "seed": 2026,
+  "calibration_sequences": 256,
+  "validation_sequences": 64,
+  "calibration_pairs": 256,
+  "validation_pairs": 64,
+  "max_frame_gap": 100,
+  "min_visible_ratio": 0.25,
+  "adaround_pairs_per_layer": 16,
+  "adaround_iterations": 2000,
+  "adaround_learning_rate": 0.001,
+  "adaround_regularization": 0.01,
+  "adaround_warmup_fraction": 0.2,
+  "adaround_beta_start": 20.0,
+  "adaround_beta_end": 2.0,
+  "activation_values_per_tensor": 262144,
+  "activation_values_per_batch": 32768,
+  "opset": 12,
+  "quantize_ops": [
+    "Conv"
+  ]
+}

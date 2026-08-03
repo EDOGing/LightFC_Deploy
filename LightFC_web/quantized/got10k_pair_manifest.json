@@ -1,0 +1,1606 @@
+{
+  "calibration": [
+    {
+      "sequence": "GOT-10k_Train_007110",
+      "template_index": 59,
+      "search_index": 10
+    },
+    {
+      "sequence": "GOT-10k_Train_007646",
+      "template_index": 167,
+      "search_index": 149
+    },
+    {
+      "sequence": "GOT-10k_Train_003158",
+      "template_index": 80,
+      "search_index": 23
+    },
+    {
+      "sequence": "GOT-10k_Train_001437",
+      "template_index": 23,
+      "search_index": 44
+    },
+    {
+      "sequence": "GOT-10k_Train_003637",
+      "template_index": 141,
+      "search_index": 114
+    },
+    {
+      "sequence": "GOT-10k_Train_004616",
+      "template_index": 43,
+      "search_index": 38
+    },
+    {
+      "sequence": "GOT-10k_Train_000542",
+      "template_index": 32,
+      "search_index": 83
+    },
+    {
+      "sequence": "GOT-10k_Train_006404",
+      "template_index": 108,
+      "search_index": 137
+    },
+    {
+      "sequence": "GOT-10k_Train_003526",
+      "template_index": 20,
+      "search_index": 43
+    },
+    {
+      "sequence": "GOT-10k_Train_006701",
+      "template_index": 56,
+      "search_index": 101
+    },
+    {
+      "sequence": "GOT-10k_Train_001242",
+      "template_index": 48,
+      "search_index": 20
+    },
+    {
+      "sequence": "GOT-10k_Train_002841",
+      "template_index": 47,
+      "search_index": 94
+    },
+    {
+      "sequence": "GOT-10k_Train_007422",
+      "template_index": 78,
+      "search_index": 15
+    },
+    {
+      "sequence": "GOT-10k_Train_000762",
+      "template_index": 7,
+      "search_index": 41
+    },
+    {
+      "sequence": "GOT-10k_Train_005739",
+      "template_index": 33,
+      "search_index": 67
+    },
+    {
+      "sequence": "GOT-10k_Train_006521",
+      "template_index": 35,
+      "search_index": 99
+    },
+    {
+      "sequence": "GOT-10k_Train_001715",
+      "template_index": 49,
+      "search_index": 72
+    },
+    {
+      "sequence": "GOT-10k_Train_003383",
+      "template_index": 97,
+      "search_index": 22
+    },
+    {
+      "sequence": "GOT-10k_Train_006523",
+      "template_index": 75,
+      "search_index": 9
+    },
+    {
+      "sequence": "GOT-10k_Train_001750",
+      "template_index": 102,
+      "search_index": 84
+    },
+    {
+      "sequence": "GOT-10k_Train_005218",
+      "template_index": 8,
+      "search_index": 62
+    },
+    {
+      "sequence": "GOT-10k_Train_003556",
+      "template_index": 27,
+      "search_index": 4
+    },
+    {
+      "sequence": "GOT-10k_Train_003347",
+      "template_index": 38,
+      "search_index": 75
+    },
+    {
+      "sequence": "GOT-10k_Train_002302",
+      "template_index": 68,
+      "search_index": 3
+    },
+    {
+      "sequence": "GOT-10k_Train_001948",
+      "template_index": 8,
+      "search_index": 21
+    },
+    {
+      "sequence": "GOT-10k_Train_002728",
+      "template_index": 1,
+      "search_index": 19
+    },
+    {
+      "sequence": "GOT-10k_Train_004343",
+      "template_index": 0,
+      "search_index": 80
+    },
+    {
+      "sequence": "GOT-10k_Train_000513",
+      "template_index": 81,
+      "search_index": 47
+    },
+    {
+      "sequence": "GOT-10k_Train_001490",
+      "template_index": 64,
+      "search_index": 49
+    },
+    {
+      "sequence": "GOT-10k_Train_002656",
+      "template_index": 118,
+      "search_index": 70
+    },
+    {
+      "sequence": "GOT-10k_Train_004589",
+      "template_index": 59,
+      "search_index": 23
+    },
+    {
+      "sequence": "GOT-10k_Train_004207",
+      "template_index": 34,
+      "search_index": 30
+    },
+    {
+      "sequence": "GOT-10k_Train_005660",
+      "template_index": 61,
+      "search_index": 89
+    },
+    {
+      "sequence": "GOT-10k_Train_002294",
+      "template_index": 81,
+      "search_index": 85
+    },
+    {
+      "sequence": "GOT-10k_Train_004619",
+      "template_index": 27,
+      "search_index": 46
+    },
+    {
+      "sequence": "GOT-10k_Train_004103",
+      "template_index": 49,
+      "search_index": 23
+    },
+    {
+      "sequence": "GOT-10k_Train_006777",
+      "template_index": 63,
+      "search_index": 54
+    },
+    {
+      "sequence": "GOT-10k_Train_004157",
+      "template_index": 85,
+      "search_index": 32
+    },
+    {
+      "sequence": "GOT-10k_Train_003319",
+      "template_index": 94,
+      "search_index": 17
+    },
+    {
+      "sequence": "GOT-10k_Train_001183",
+      "template_index": 90,
+      "search_index": 77
+    },
+    {
+      "sequence": "GOT-10k_Train_005289",
+      "template_index": 34,
+      "search_index": 45
+    },
+    {
+      "sequence": "GOT-10k_Train_007065",
+      "template_index": 146,
+      "search_index": 181
+    },
+    {
+      "sequence": "GOT-10k_Train_002083",
+      "template_index": 133,
+      "search_index": 36
+    },
+    {
+      "sequence": "GOT-10k_Train_003779",
+      "template_index": 59,
+      "search_index": 17
+    },
+    {
+      "sequence": "GOT-10k_Train_007597",
+      "template_index": 43,
+      "search_index": 38
+    },
+    {
+      "sequence": "GOT-10k_Train_007153",
+      "template_index": 75,
+      "search_index": 38
+    },
+    {
+      "sequence": "GOT-10k_Train_007374",
+      "template_index": 32,
+      "search_index": 45
+    },
+    {
+      "sequence": "GOT-10k_Train_000993",
+      "template_index": 39,
+      "search_index": 24
+    },
+    {
+      "sequence": "GOT-10k_Train_006404",
+      "template_index": 175,
+      "search_index": 112
+    },
+    {
+      "sequence": "GOT-10k_Train_002211",
+      "template_index": 24,
+      "search_index": 13
+    },
+    {
+      "sequence": "GOT-10k_Train_000295",
+      "template_index": 28,
+      "search_index": 32
+    },
+    {
+      "sequence": "GOT-10k_Train_002083",
+      "template_index": 22,
+      "search_index": 1
+    },
+    {
+      "sequence": "GOT-10k_Train_000713",
+      "template_index": 5,
+      "search_index": 97
+    },
+    {
+      "sequence": "GOT-10k_Train_004157",
+      "template_index": 1,
+      "search_index": 51
+    },
+    {
+      "sequence": "GOT-10k_Train_007194",
+      "template_index": 79,
+      "search_index": 69
+    },
+    {
+      "sequence": "GOT-10k_Train_001437",
+      "template_index": 15,
+      "search_index": 10
+    },
+    {
+      "sequence": "GOT-10k_Train_001742",
+      "template_index": 32,
+      "search_index": 112
+    },
+    {
+      "sequence": "GOT-10k_Train_000542",
+      "template_index": 25,
+      "search_index": 49
+    },
+    {
+      "sequence": "GOT-10k_Train_006389",
+      "template_index": 49,
+      "search_index": 37
+    },
+    {
+      "sequence": "GOT-10k_Train_006412",
+      "template_index": 157,
+      "search_index": 78
+    },
+    {
+      "sequence": "GOT-10k_Train_001100",
+      "template_index": 53,
+      "search_index": 48
+    },
+    {
+      "sequence": "GOT-10k_Train_001699",
+      "template_index": 6,
+      "search_index": 23
+    },
+    {
+      "sequence": "GOT-10k_Train_007646",
+      "template_index": 146,
+      "search_index": 158
+    },
+    {
+      "sequence": "GOT-10k_Train_005057",
+      "template_index": 25,
+      "search_index": 22
+    },
+    {
+      "sequence": "GOT-10k_Train_001490",
+      "template_index": 12,
+      "search_index": 26
+    },
+    {
+      "sequence": "GOT-10k_Train_000713",
+      "template_index": 24,
+      "search_index": 90
+    },
+    {
+      "sequence": "GOT-10k_Train_007015",
+      "template_index": 9,
+      "search_index": 42
+    },
+    {
+      "sequence": "GOT-10k_Train_000762",
+      "template_index": 12,
+      "search_index": 23
+    },
+    {
+      "sequence": "GOT-10k_Train_005314",
+      "template_index": 145,
+      "search_index": 63
+    },
+    {
+      "sequence": "GOT-10k_Train_002374",
+      "template_index": 63,
+      "search_index": 9
+    },
+    {
+      "sequence": "GOT-10k_Train_003642",
+      "template_index": 499,
+      "search_index": 527
+    },
+    {
+      "sequence": "GOT-10k_Train_005209",
+      "template_index": 58,
+      "search_index": 18
+    },
+    {
+      "sequence": "GOT-10k_Train_000445",
+      "template_index": 58,
+      "search_index": 61
+    },
+    {
+      "sequence": "GOT-10k_Train_002077",
+      "template_index": 82,
+      "search_index": 11
+    },
+    {
+      "sequence": "GOT-10k_Train_007194",
+      "template_index": 75,
+      "search_index": 17
+    },
+    {
+      "sequence": "GOT-10k_Train_005658",
+      "template_index": 106,
+      "search_index": 151
+    },
+    {
+      "sequence": "GOT-10k_Train_007267",
+      "template_index": 102,
+      "search_index": 4
+    },
+    {
+      "sequence": "GOT-10k_Train_002143",
+      "template_index": 197,
+      "search_index": 245
+    },
+    {
+      "sequence": "GOT-10k_Train_000311",
+      "template_index": 96,
+      "search_index": 96
+    },
+    {
+      "sequence": "GOT-10k_Train_002706",
+      "template_index": 24,
+      "search_index": 49
+    },
+    {
+      "sequence": "GOT-10k_Train_000336",
+      "template_index": 72,
+      "search_index": 74
+    },
+    {
+      "sequence": "GOT-10k_Train_000391",
+      "template_index": 33,
+      "search_index": 10
+    },
+    {
+      "sequence": "GOT-10k_Train_006404",
+      "template_index": 10,
+      "search_index": 55
+    },
+    {
+      "sequence": "GOT-10k_Train_004239",
+      "template_index": 78,
+      "search_index": 34
+    },
+    {
+      "sequence": "GOT-10k_Train_004384",
+      "template_index": 183,
+      "search_index": 222
+    },
+    {
+      "sequence": "GOT-10k_Train_004433",
+      "template_index": 75,
+      "search_index": 34
+    },
+    {
+      "sequence": "GOT-10k_Train_005545",
+      "template_index": 75,
+      "search_index": 168
+    },
+    {
+      "sequence": "GOT-10k_Train_005234",
+      "template_index": 7,
+      "search_index": 4
+    },
+    {
+      "sequence": "GOT-10k_Train_000445",
+      "template_index": 89,
+      "search_index": 81
+    },
+    {
+      "sequence": "GOT-10k_Train_003865",
+      "template_index": 39,
+      "search_index": 64
+    },
+    {
+      "sequence": "GOT-10k_Train_007416",
+      "template_index": 192,
+      "search_index": 266
+    },
+    {
+      "sequence": "GOT-10k_Train_004207",
+      "template_index": 46,
+      "search_index": 91
+    },
+    {
+      "sequence": "GOT-10k_Train_003576",
+      "template_index": 41,
+      "search_index": 23
+    },
+    {
+      "sequence": "GOT-10k_Train_001984",
+      "template_index": 115,
+      "search_index": 62
+    },
+    {
+      "sequence": "GOT-10k_Train_003996",
+      "template_index": 35,
+      "search_index": 88
+    },
+    {
+      "sequence": "GOT-10k_Train_006404",
+      "template_index": 117,
+      "search_index": 134
+    },
+    {
+      "sequence": "GOT-10k_Train_003319",
+      "template_index": 4,
+      "search_index": 42
+    },
+    {
+      "sequence": "GOT-10k_Train_005846",
+      "template_index": 52,
+      "search_index": 64
+    },
+    {
+      "sequence": "GOT-10k_Train_007544",
+      "template_index": 76,
+      "search_index": 58
+    },
+    {
+      "sequence": "GOT-10k_Train_006645",
+      "template_index": 181,
+      "search_index": 205
+    },
+    {
+      "sequence": "GOT-10k_Train_002728",
+      "template_index": 38,
+      "search_index": 49
+    },
+    {
+      "sequence": "GOT-10k_Train_004862",
+      "template_index": 15,
+      "search_index": 11
+    },
+    {
+      "sequence": "GOT-10k_Train_006807",
+      "template_index": 10,
+      "search_index": 15
+    },
+    {
+      "sequence": "GOT-10k_Train_003183",
+      "template_index": 57,
+      "search_index": 10
+    },
+    {
+      "sequence": "GOT-10k_Train_000497",
+      "template_index": 62,
+      "search_index": 97
+    },
+    {
+      "sequence": "GOT-10k_Train_002858",
+      "template_index": 86,
+      "search_index": 1
+    },
+    {
+      "sequence": "GOT-10k_Train_006130",
+      "template_index": 134,
+      "search_index": 81
+    },
+    {
+      "sequence": "GOT-10k_Train_005249",
+      "template_index": 76,
+      "search_index": 81
+    },
+    {
+      "sequence": "GOT-10k_Train_006523",
+      "template_index": 51,
+      "search_index": 39
+    },
+    {
+      "sequence": "GOT-10k_Train_006777",
+      "template_index": 48,
+      "search_index": 8
+    },
+    {
+      "sequence": "GOT-10k_Train_001956",
+      "template_index": 68,
+      "search_index": 55
+    },
+    {
+      "sequence": "GOT-10k_Train_004733",
+      "template_index": 202,
+      "search_index": 202
+    },
+    {
+      "sequence": "GOT-10k_Train_003983",
+      "template_index": 5,
+      "search_index": 16
+    },
+    {
+      "sequence": "GOT-10k_Train_007416",
+      "template_index": 375,
+      "search_index": 445
+    },
+    {
+      "sequence": "GOT-10k_Train_002302",
+      "template_index": 47,
+      "search_index": 74
+    },
+    {
+      "sequence": "GOT-10k_Train_002647",
+      "template_index": 128,
+      "search_index": 113
+    },
+    {
+      "sequence": "GOT-10k_Train_003825",
+      "template_index": 17,
+      "search_index": 2
+    },
+    {
+      "sequence": "GOT-10k_Train_006521",
+      "template_index": 87,
+      "search_index": 12
+    },
+    {
+      "sequence": "GOT-10k_Train_000287",
+      "template_index": 22,
+      "search_index": 66
+    },
+    {
+      "sequence": "GOT-10k_Train_000415",
+      "template_index": 63,
+      "search_index": 86
+    },
+    {
+      "sequence": "GOT-10k_Train_005254",
+      "template_index": 126,
+      "search_index": 101
+    },
+    {
+      "sequence": "GOT-10k_Train_007109",
+      "template_index": 53,
+      "search_index": 83
+    },
+    {
+      "sequence": "GOT-10k_Train_007616",
+      "template_index": 97,
+      "search_index": 129
+    },
+    {
+      "sequence": "GOT-10k_Train_001118",
+      "template_index": 62,
+      "search_index": 21
+    },
+    {
+      "sequence": "GOT-10k_Train_004733",
+      "template_index": 224,
+      "search_index": 217
+    },
+    {
+      "sequence": "GOT-10k_Train_006154",
+      "template_index": 61,
+      "search_index": 77
+    },
+    {
+      "sequence": "GOT-10k_Train_000915",
+      "template_index": 62,
+      "search_index": 22
+    },
+    {
+      "sequence": "GOT-10k_Train_003271",
+      "template_index": 82,
+      "search_index": 14
+    },
+    {
+      "sequence": "GOT-10k_Train_001923",
+      "template_index": 59,
+      "search_index": 66
+    },
+    {
+      "sequence": "GOT-10k_Train_007089",
+      "template_index": 92,
+      "search_index": 91
+    },
+    {
+      "sequence": "GOT-10k_Train_000762",
+      "template_index": 73,
+      "search_index": 51
+    },
+    {
+      "sequence": "GOT-10k_Train_005506",
+      "template_index": 100,
+      "search_index": 127
+    },
+    {
+      "sequence": "GOT-10k_Train_001980",
+      "template_index": 40,
+      "search_index": 42
+    },
+    {
+      "sequence": "GOT-10k_Train_001496",
+      "template_index": 140,
+      "search_index": 50
+    },
+    {
+      "sequence": "GOT-10k_Train_005621",
+      "template_index": 41,
+      "search_index": 134
+    },
+    {
+      "sequence": "GOT-10k_Train_001437",
+      "template_index": 27,
+      "search_index": 30
+    },
+    {
+      "sequence": "GOT-10k_Train_002249",
+      "template_index": 51,
+      "search_index": 84
+    },
+    {
+      "sequence": "GOT-10k_Train_005739",
+      "template_index": 61,
+      "search_index": 94
+    },
+    {
+      "sequence": "GOT-10k_Train_002751",
+      "template_index": 49,
+      "search_index": 13
+    },
+    {
+      "sequence": "GOT-10k_Train_005108",
+      "template_index": 252,
+      "search_index": 303
+    },
+    {
+      "sequence": "GOT-10k_Train_003779",
+      "template_index": 70,
+      "search_index": 3
+    },
+    {
+      "sequence": "GOT-10k_Train_003708",
+      "template_index": 98,
+      "search_index": 148
+    },
+    {
+      "sequence": "GOT-10k_Train_006130",
+      "template_index": 141,
+      "search_index": 68
+    },
+    {
+      "sequence": "GOT-10k_Train_001490",
+      "template_index": 65,
+      "search_index": 16
+    },
+    {
+      "sequence": "GOT-10k_Train_002008",
+      "template_index": 38,
+      "search_index": 69
+    },
+    {
+      "sequence": "GOT-10k_Train_005880",
+      "template_index": 244,
+      "search_index": 259
+    },
+    {
+      "sequence": "GOT-10k_Train_000785",
+      "template_index": 71,
+      "search_index": 9
+    },
+    {
+      "sequence": "GOT-10k_Train_003556",
+      "template_index": 47,
+      "search_index": 25
+    },
+    {
+      "sequence": "GOT-10k_Train_000749",
+      "template_index": 41,
+      "search_index": 36
+    },
+    {
+      "sequence": "GOT-10k_Train_001496",
+      "template_index": 108,
+      "search_index": 111
+    },
+    {
+      "sequence": "GOT-10k_Train_006957",
+      "template_index": 95,
+      "search_index": 100
+    },
+    {
+      "sequence": "GOT-10k_Train_007199",
+      "template_index": 162,
+      "search_index": 223
+    },
+    {
+      "sequence": "GOT-10k_Train_005289",
+      "template_index": 76,
+      "search_index": 20
+    },
+    {
+      "sequence": "GOT-10k_Train_004748",
+      "template_index": 87,
+      "search_index": 83
+    },
+    {
+      "sequence": "GOT-10k_Train_007362",
+      "template_index": 67,
+      "search_index": 48
+    },
+    {
+      "sequence": "GOT-10k_Train_005249",
+      "template_index": 2,
+      "search_index": 62
+    },
+    {
+      "sequence": "GOT-10k_Train_000311",
+      "template_index": 17,
+      "search_index": 50
+    },
+    {
+      "sequence": "GOT-10k_Train_000665",
+      "template_index": 22,
+      "search_index": 36
+    },
+    {
+      "sequence": "GOT-10k_Train_000785",
+      "template_index": 17,
+      "search_index": 17
+    },
+    {
+      "sequence": "GOT-10k_Train_003909",
+      "template_index": 31,
+      "search_index": 85
+    },
+    {
+      "sequence": "GOT-10k_Train_007159",
+      "template_index": 38,
+      "search_index": 76
+    },
+    {
+      "sequence": "GOT-10k_Train_007374",
+      "template_index": 12,
+      "search_index": 5
+    },
+    {
+      "sequence": "GOT-10k_Train_004239",
+      "template_index": 91,
+      "search_index": 77
+    },
+    {
+      "sequence": "GOT-10k_Train_003758",
+      "template_index": 47,
+      "search_index": 15
+    },
+    {
+      "sequence": "GOT-10k_Train_004288",
+      "template_index": 120,
+      "search_index": 29
+    },
+    {
+      "sequence": "GOT-10k_Train_003996",
+      "template_index": 367,
+      "search_index": 303
+    },
+    {
+      "sequence": "GOT-10k_Train_000883",
+      "template_index": 50,
+      "search_index": 39
+    },
+    {
+      "sequence": "GOT-10k_Train_003526",
+      "template_index": 41,
+      "search_index": 65
+    },
+    {
+      "sequence": "GOT-10k_Train_006485",
+      "template_index": 125,
+      "search_index": 125
+    },
+    {
+      "sequence": "GOT-10k_Train_001372",
+      "template_index": 45,
+      "search_index": 19
+    },
+    {
+      "sequence": "GOT-10k_Train_003434",
+      "template_index": 60,
+      "search_index": 61
+    },
+    {
+      "sequence": "GOT-10k_Train_000415",
+      "template_index": 95,
+      "search_index": 59
+    },
+    {
+      "sequence": "GOT-10k_Train_001984",
+      "template_index": 94,
+      "search_index": 65
+    },
+    {
+      "sequence": "GOT-10k_Train_003158",
+      "template_index": 72,
+      "search_index": 20
+    },
+    {
+      "sequence": "GOT-10k_Train_003865",
+      "template_index": 100,
+      "search_index": 83
+    },
+    {
+      "sequence": "GOT-10k_Train_007679",
+      "template_index": 9,
+      "search_index": 53
+    },
+    {
+      "sequence": "GOT-10k_Train_002304",
+      "template_index": 84,
+      "search_index": 95
+    },
+    {
+      "sequence": "GOT-10k_Train_005396",
+      "template_index": 100,
+      "search_index": 59
+    },
+    {
+      "sequence": "GOT-10k_Train_001923",
+      "template_index": 41,
+      "search_index": 1
+    },
+    {
+      "sequence": "GOT-10k_Train_002302",
+      "template_index": 8,
+      "search_index": 10
+    },
+    {
+      "sequence": "GOT-10k_Train_000915",
+      "template_index": 23,
+      "search_index": 55
+    },
+    {
+      "sequence": "GOT-10k_Train_003035",
+      "template_index": 131,
+      "search_index": 40
+    },
+    {
+      "sequence": "GOT-10k_Train_007081",
+      "template_index": 55,
+      "search_index": 69
+    },
+    {
+      "sequence": "GOT-10k_Train_002008",
+      "template_index": 19,
+      "search_index": 20
+    },
+    {
+      "sequence": "GOT-10k_Train_006471",
+      "template_index": 13,
+      "search_index": 99
+    },
+    {
+      "sequence": "GOT-10k_Train_000037",
+      "template_index": 89,
+      "search_index": 123
+    },
+    {
+      "sequence": "GOT-10k_Train_007416",
+      "template_index": 340,
+      "search_index": 307
+    },
+    {
+      "sequence": "GOT-10k_Train_004733",
+      "template_index": 138,
+      "search_index": 121
+    },
+    {
+      "sequence": "GOT-10k_Train_000311",
+      "template_index": 83,
+      "search_index": 32
+    },
+    {
+      "sequence": "GOT-10k_Train_001952",
+      "template_index": 3,
+      "search_index": 38
+    },
+    {
+      "sequence": "GOT-10k_Train_000762",
+      "template_index": 78,
+      "search_index": 7
+    },
+    {
+      "sequence": "GOT-10k_Train_007506",
+      "template_index": 56,
+      "search_index": 105
+    },
+    {
+      "sequence": "GOT-10k_Train_004862",
+      "template_index": 28,
+      "search_index": 67
+    },
+    {
+      "sequence": "GOT-10k_Train_000513",
+      "template_index": 16,
+      "search_index": 22
+    },
+    {
+      "sequence": "GOT-10k_Train_000901",
+      "template_index": 85,
+      "search_index": 24
+    },
+    {
+      "sequence": "GOT-10k_Train_000713",
+      "template_index": 7,
+      "search_index": 26
+    },
+    {
+      "sequence": "GOT-10k_Train_003650",
+      "template_index": 18,
+      "search_index": 60
+    },
+    {
+      "sequence": "GOT-10k_Train_007362",
+      "template_index": 64,
+      "search_index": 83
+    },
+    {
+      "sequence": "GOT-10k_Train_001773",
+      "template_index": 30,
+      "search_index": 9
+    },
+    {
+      "sequence": "GOT-10k_Train_007667",
+      "template_index": 61,
+      "search_index": 48
+    },
+    {
+      "sequence": "GOT-10k_Train_006777",
+      "template_index": 78,
+      "search_index": 40
+    },
+    {
+      "sequence": "GOT-10k_Train_004589",
+      "template_index": 60,
+      "search_index": 71
+    },
+    {
+      "sequence": "GOT-10k_Train_004384",
+      "template_index": 182,
+      "search_index": 207
+    },
+    {
+      "sequence": "GOT-10k_Train_001496",
+      "template_index": 126,
+      "search_index": 178
+    },
+    {
+      "sequence": "GOT-10k_Train_004437",
+      "template_index": 140,
+      "search_index": 100
+    },
+    {
+      "sequence": "GOT-10k_Train_004767",
+      "template_index": 64,
+      "search_index": 5
+    },
+    {
+      "sequence": "GOT-10k_Train_007109",
+      "template_index": 76,
+      "search_index": 71
+    },
+    {
+      "sequence": "GOT-10k_Train_005128",
+      "template_index": 1,
+      "search_index": 18
+    },
+    {
+      "sequence": "GOT-10k_Train_006523",
+      "template_index": 80,
+      "search_index": 22
+    },
+    {
+      "sequence": "GOT-10k_Train_004215",
+      "template_index": 44,
+      "search_index": 75
+    },
+    {
+      "sequence": "GOT-10k_Train_006645",
+      "template_index": 17,
+      "search_index": 111
+    },
+    {
+      "sequence": "GOT-10k_Train_004822",
+      "template_index": 41,
+      "search_index": 82
+    },
+    {
+      "sequence": "GOT-10k_Train_003758",
+      "template_index": 65,
+      "search_index": 74
+    },
+    {
+      "sequence": "GOT-10k_Train_003158",
+      "template_index": 9,
+      "search_index": 34
+    },
+    {
+      "sequence": "GOT-10k_Train_003319",
+      "template_index": 94,
+      "search_index": 50
+    },
+    {
+      "sequence": "GOT-10k_Train_001750",
+      "template_index": 61,
+      "search_index": 95
+    },
+    {
+      "sequence": "GOT-10k_Train_007409",
+      "template_index": 169,
+      "search_index": 129
+    },
+    {
+      "sequence": "GOT-10k_Train_001952",
+      "template_index": 76,
+      "search_index": 18
+    },
+    {
+      "sequence": "GOT-10k_Train_002294",
+      "template_index": 45,
+      "search_index": 40
+    },
+    {
+      "sequence": "GOT-10k_Train_002347",
+      "template_index": 46,
+      "search_index": 72
+    },
+    {
+      "sequence": "GOT-10k_Train_001992",
+      "template_index": 68,
+      "search_index": 52
+    },
+    {
+      "sequence": "GOT-10k_Train_003347",
+      "template_index": 28,
+      "search_index": 52
+    },
+    {
+      "sequence": "GOT-10k_Train_005354",
+      "template_index": 22,
+      "search_index": 57
+    },
+    {
+      "sequence": "GOT-10k_Train_007679",
+      "template_index": 24,
+      "search_index": 20
+    },
+    {
+      "sequence": "GOT-10k_Train_007374",
+      "template_index": 49,
+      "search_index": 64
+    },
+    {
+      "sequence": "GOT-10k_Train_001980",
+      "template_index": 32,
+      "search_index": 16
+    },
+    {
+      "sequence": "GOT-10k_Train_001750",
+      "template_index": 96,
+      "search_index": 76
+    },
+    {
+      "sequence": "GOT-10k_Train_004215",
+      "template_index": 80,
+      "search_index": 16
+    },
+    {
+      "sequence": "GOT-10k_Train_004215",
+      "template_index": 28,
+      "search_index": 34
+    },
+    {
+      "sequence": "GOT-10k_Train_002701",
+      "template_index": 34,
+      "search_index": 15
+    },
+    {
+      "sequence": "GOT-10k_Train_003865",
+      "template_index": 61,
+      "search_index": 44
+    },
+    {
+      "sequence": "GOT-10k_Train_000295",
+      "template_index": 72,
+      "search_index": 63
+    },
+    {
+      "sequence": "GOT-10k_Train_004343",
+      "template_index": 49,
+      "search_index": 42
+    },
+    {
+      "sequence": "GOT-10k_Train_007409",
+      "template_index": 110,
+      "search_index": 75
+    },
+    {
+      "sequence": "GOT-10k_Train_002007",
+      "template_index": 198,
+      "search_index": 190
+    },
+    {
+      "sequence": "GOT-10k_Train_001242",
+      "template_index": 44,
+      "search_index": 66
+    },
+    {
+      "sequence": "GOT-10k_Train_001454",
+      "template_index": 88,
+      "search_index": 154
+    },
+    {
+      "sequence": "GOT-10k_Train_001065",
+      "template_index": 19,
+      "search_index": 57
+    },
+    {
+      "sequence": "GOT-10k_Train_000274",
+      "template_index": 22,
+      "search_index": 36
+    },
+    {
+      "sequence": "GOT-10k_Train_004589",
+      "template_index": 6,
+      "search_index": 9
+    },
+    {
+      "sequence": "GOT-10k_Train_007050",
+      "template_index": 109,
+      "search_index": 47
+    },
+    {
+      "sequence": "GOT-10k_Train_007646",
+      "template_index": 13,
+      "search_index": 65
+    },
+    {
+      "sequence": "GOT-10k_Train_007199",
+      "template_index": 137,
+      "search_index": 236
+    },
+    {
+      "sequence": "GOT-10k_Train_002211",
+      "template_index": 70,
+      "search_index": 68
+    },
+    {
+      "sequence": "GOT-10k_Train_002294",
+      "template_index": 34,
+      "search_index": 58
+    },
+    {
+      "sequence": "GOT-10k_Train_001437",
+      "template_index": 72,
+      "search_index": 71
+    },
+    {
+      "sequence": "GOT-10k_Train_000915",
+      "template_index": 68,
+      "search_index": 0
+    },
+    {
+      "sequence": "GOT-10k_Train_007452",
+      "template_index": 421,
+      "search_index": 348
+    },
+    {
+      "sequence": "GOT-10k_Train_007454",
+      "template_index": 183,
+      "search_index": 132
+    },
+    {
+      "sequence": "GOT-10k_Train_007409",
+      "template_index": 40,
+      "search_index": 116
+    },
+    {
+      "sequence": "GOT-10k_Train_003909",
+      "template_index": 33,
+      "search_index": 84
+    },
+    {
+      "sequence": "GOT-10k_Train_003556",
+      "template_index": 1,
+      "search_index": 43
+    },
+    {
+      "sequence": "GOT-10k_Train_005209",
+      "template_index": 67,
+      "search_index": 24
+    },
+    {
+      "sequence": "GOT-10k_Train_005254",
+      "template_index": 36,
+      "search_index": 48
+    },
+    {
+      "sequence": "GOT-10k_Train_001011",
+      "template_index": 56,
+      "search_index": 28
+    },
+    {
+      "sequence": "GOT-10k_Train_003237",
+      "template_index": 4,
+      "search_index": 64
+    }
+  ],
+  "validation": [
+    {
+      "sequence": "GOT-10k_Train_006459",
+      "template_index": 106,
+      "search_index": 28
+    },
+    {
+      "sequence": "GOT-10k_Train_000916",
+      "template_index": 47,
+      "search_index": 46
+    },
+    {
+      "sequence": "GOT-10k_Train_007077",
+      "template_index": 41,
+      "search_index": 2
+    },
+    {
+      "sequence": "GOT-10k_Train_000468",
+      "template_index": 79,
+      "search_index": 159
+    },
+    {
+      "sequence": "GOT-10k_Train_006459",
+      "template_index": 67,
+      "search_index": 0
+    },
+    {
+      "sequence": "GOT-10k_Train_005764",
+      "template_index": 51,
+      "search_index": 3
+    },
+    {
+      "sequence": "GOT-10k_Train_000011",
+      "template_index": 38,
+      "search_index": 60
+    },
+    {
+      "sequence": "GOT-10k_Train_001377",
+      "template_index": 37,
+      "search_index": 84
+    },
+    {
+      "sequence": "GOT-10k_Train_001608",
+      "template_index": 61,
+      "search_index": 72
+    },
+    {
+      "sequence": "GOT-10k_Train_001947",
+      "template_index": 11,
+      "search_index": 60
+    },
+    {
+      "sequence": "GOT-10k_Train_003204",
+      "template_index": 52,
+      "search_index": 48
+    },
+    {
+      "sequence": "GOT-10k_Train_004658",
+      "template_index": 58,
+      "search_index": 89
+    },
+    {
+      "sequence": "GOT-10k_Train_000468",
+      "template_index": 142,
+      "search_index": 86
+    },
+    {
+      "sequence": "GOT-10k_Train_003509",
+      "template_index": 30,
+      "search_index": 35
+    },
+    {
+      "sequence": "GOT-10k_Train_001725",
+      "template_index": 61,
+      "search_index": 67
+    },
+    {
+      "sequence": "GOT-10k_Train_006446",
+      "template_index": 37,
+      "search_index": 28
+    },
+    {
+      "sequence": "GOT-10k_Train_006459",
+      "template_index": 90,
+      "search_index": 102
+    },
+    {
+      "sequence": "GOT-10k_Train_000248",
+      "template_index": 23,
+      "search_index": 74
+    },
+    {
+      "sequence": "GOT-10k_Train_001947",
+      "template_index": 66,
+      "search_index": 69
+    },
+    {
+      "sequence": "GOT-10k_Train_001188",
+      "template_index": 94,
+      "search_index": 14
+    },
+    {
+      "sequence": "GOT-10k_Train_005764",
+      "template_index": 125,
+      "search_index": 105
+    },
+    {
+      "sequence": "GOT-10k_Train_004535",
+      "template_index": 375,
+      "search_index": 341
+    },
+    {
+      "sequence": "GOT-10k_Train_007285",
+      "template_index": 106,
+      "search_index": 62
+    },
+    {
+      "sequence": "GOT-10k_Train_003509",
+      "template_index": 97,
+      "search_index": 18
+    },
+    {
+      "sequence": "GOT-10k_Train_003238",
+      "template_index": 66,
+      "search_index": 25
+    },
+    {
+      "sequence": "GOT-10k_Train_002864",
+      "template_index": 54,
+      "search_index": 15
+    },
+    {
+      "sequence": "GOT-10k_Train_001334",
+      "template_index": 82,
+      "search_index": 6
+    },
+    {
+      "sequence": "GOT-10k_Train_007671",
+      "template_index": 73,
+      "search_index": 29
+    },
+    {
+      "sequence": "GOT-10k_Train_002241",
+      "template_index": 24,
+      "search_index": 0
+    },
+    {
+      "sequence": "GOT-10k_Train_000155",
+      "template_index": 54,
+      "search_index": 29
+    },
+    {
+      "sequence": "GOT-10k_Train_006817",
+      "template_index": 97,
+      "search_index": 92
+    },
+    {
+      "sequence": "GOT-10k_Train_000011",
+      "template_index": 56,
+      "search_index": 57
+    },
+    {
+      "sequence": "GOT-10k_Train_003913",
+      "template_index": 10,
+      "search_index": 48
+    },
+    {
+      "sequence": "GOT-10k_Train_000688",
+      "template_index": 48,
+      "search_index": 87
+    },
+    {
+      "sequence": "GOT-10k_Train_000688",
+      "template_index": 65,
+      "search_index": 111
+    },
+    {
+      "sequence": "GOT-10k_Train_005073",
+      "template_index": 64,
+      "search_index": 26
+    },
+    {
+      "sequence": "GOT-10k_Train_007720",
+      "template_index": 57,
+      "search_index": 3
+    },
+    {
+      "sequence": "GOT-10k_Train_001725",
+      "template_index": 37,
+      "search_index": 22
+    },
+    {
+      "sequence": "GOT-10k_Train_003844",
+      "template_index": 4,
+      "search_index": 12
+    },
+    {
+      "sequence": "GOT-10k_Train_001909",
+      "template_index": 67,
+      "search_index": 89
+    },
+    {
+      "sequence": "GOT-10k_Train_000155",
+      "template_index": 71,
+      "search_index": 20
+    },
+    {
+      "sequence": "GOT-10k_Train_006446",
+      "template_index": 1,
+      "search_index": 3
+    },
+    {
+      "sequence": "GOT-10k_Train_003204",
+      "template_index": 84,
+      "search_index": 44
+    },
+    {
+      "sequence": "GOT-10k_Train_006817",
+      "template_index": 59,
+      "search_index": 38
+    },
+    {
+      "sequence": "GOT-10k_Train_000353",
+      "template_index": 91,
+      "search_index": 91
+    },
+    {
+      "sequence": "GOT-10k_Train_003509",
+      "template_index": 96,
+      "search_index": 47
+    },
+    {
+      "sequence": "GOT-10k_Train_005864",
+      "template_index": 11,
+      "search_index": 98
+    },
+    {
+      "sequence": "GOT-10k_Train_001725",
+      "template_index": 39,
+      "search_index": 65
+    },
+    {
+      "sequence": "GOT-10k_Train_000405",
+      "template_index": 71,
+      "search_index": 14
+    },
+    {
+      "sequence": "GOT-10k_Train_001051",
+      "template_index": 4,
+      "search_index": 36
+    },
+    {
+      "sequence": "GOT-10k_Train_004522",
+      "template_index": 204,
+      "search_index": 176
+    },
+    {
+      "sequence": "GOT-10k_Train_000011",
+      "template_index": 60,
+      "search_index": 78
+    },
+    {
+      "sequence": "GOT-10k_Train_004658",
+      "template_index": 137,
+      "search_index": 89
+    },
+    {
+      "sequence": "GOT-10k_Train_006459",
+      "template_index": 79,
+      "search_index": 2
+    },
+    {
+      "sequence": "GOT-10k_Train_001334",
+      "template_index": 31,
+      "search_index": 93
+    },
+    {
+      "sequence": "GOT-10k_Train_007021",
+      "template_index": 138,
+      "search_index": 81
+    },
+    {
+      "sequence": "GOT-10k_Train_007671",
+      "template_index": 59,
+      "search_index": 71
+    },
+    {
+      "sequence": "GOT-10k_Train_002844",
+      "template_index": 25,
+      "search_index": 100
+    },
+    {
+      "sequence": "GOT-10k_Train_007021",
+      "template_index": 3,
+      "search_index": 52
+    },
+    {
+      "sequence": "GOT-10k_Train_003204",
+      "template_index": 2,
+      "search_index": 53
+    },
+    {
+      "sequence": "GOT-10k_Train_001377",
+      "template_index": 52,
+      "search_index": 59
+    },
+    {
+      "sequence": "GOT-10k_Train_002859",
+      "template_index": 52,
+      "search_index": 84
+    },
+    {
+      "sequence": "GOT-10k_Train_007676",
+      "template_index": 35,
+      "search_index": 14
+    },
+    {
+      "sequence": "GOT-10k_Train_000353",
+      "template_index": 7,
+      "search_index": 86
+    }
+  ]
+}
