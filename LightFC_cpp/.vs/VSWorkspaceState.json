@@ -1,0 +1,17 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "build\\vs2022-x64",
+      "build\\vs2022-vcpkg-x64"
+    ]
+  },
+  "ExpandedNodes": [
+    "",
+    "\\build",
+    "\\include\\lightfc",
+    "\\out\\build",
+    "\\out\\build\\x64-Debug"
+  ],
+  "SelectedNode": "\\ncnn",
+  "PreviewInSolutionExplorer": false
+}

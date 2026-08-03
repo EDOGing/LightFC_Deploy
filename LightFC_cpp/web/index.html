@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LightFC NCNN 实时跟踪</title>
+  <style>
+    :root { color-scheme:dark; font-family:"Microsoft YaHei",system-ui,sans-serif; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#0e1117; color:#e8edf5; }
+    main { width:min(1280px,96vw); margin:22px auto; }
+    h1 { font-size:22px; margin:0 0 16px; }
+    .toolbar { display:grid; grid-template-columns:1fr auto auto auto; gap:8px; margin-bottom:12px; }
+    input,button { border:1px solid #394355; border-radius:7px; padding:10px 12px; font:inherit; }
+    input { background:#171d27; color:#fff; min-width:0; }
+    button { background:#2474dd; color:white; cursor:pointer; }
+    button.secondary { background:#313a49; }
+    #stage { position:relative; width:fit-content; max-width:100%; min-width:320px; min-height:180px;
+             margin:auto; background:#06080c; border:1px solid #293141; overflow:hidden; user-select:none; }
+    #video { display:block; max-width:100%; max-height:66vh; min-width:320px; min-height:180px; }
+    #overlay { position:absolute; inset:0; width:100%; height:100%; cursor:crosshair; }
+    #status { margin-top:12px; padding:10px 12px; background:#171d27; border-radius:7px; color:#b9c4d6; }
+    .log-header { display:flex; align-items:center; justify-content:space-between; margin:14px 0 6px; }
+    .log-header h2 { margin:0; font-size:16px; }
+    #clearLog { padding:6px 10px; }
+    #trackingLog { display:block; width:100%; height:210px; resize:vertical; border:1px solid #394355;
+                   border-radius:7px; padding:10px 12px; background:#080b10; color:#aee9c2;
+                   font:13px/1.5 Consolas,"Courier New",monospace; white-space:pre; }
+    .hint { color:#8e9bb0; font-size:13px; margin:8px 0 0; }
+    @media(max-width:700px){ .toolbar{grid-template-columns:1fr 1fr}.toolbar input{grid-column:1/-1} }
+  </style>
+</head>
+<body>
+<main>
+  <h1>LightFC · NCNN 实时跟踪</h1>
+  <div class="toolbar">
+    <input id="url" placeholder="rtsp://user:password@host/stream 或本地视频路径">
+    <button id="connect">连接</button>
+    <button id="cancel" class="secondary">取消跟踪</button>
+    <button id="disconnect" class="secondary">断开</button>
+  </div>
+  <div id="stage">
+    <img id="video" alt="等待视频连接">
+    <canvas id="overlay"></canvas>
+  </div>
+  <div id="status">未连接</div>
+  <div class="log-header">
+    <h2>逐帧跟踪数据（原图坐标 xywh）</h2>
+    <button id="clearLog" class="secondary">清空</button>
+  </div>
+  <textarea id="trackingLog" readonly spellcheck="false" placeholder="开始跟踪后，每帧 bbox 和置信度会显示在这里"></textarea>
+  <p class="hint">连接后在画面上拖出目标框。日志最多保留最近 300 帧，接口本身按 sequence 顺序输出每个成功跟踪帧。</p>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const video=$('video'),canvas=$('overlay'),ctx=canvas.getContext('2d'),trackingLog=$('trackingLog');
+let start=null,current=null,afterSequence=0,outputPolling=false,logLines=[];
+async function api(path,body){
+  const response=await fetch(path,{method:body===undefined?'GET':'POST',headers:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});
+  const data=await response.json();
+  if(!response.ok||data.ok===false)throw new Error(data.error||response.statusText);
+  return data;
+}
+function resizeCanvas(){const r=video.getBoundingClientRect();canvas.width=Math.max(1,Math.round(r.width));canvas.height=Math.max(1,Math.round(r.height));draw();}
+function point(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height};}
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);if(!start||!current)return;const x=Math.min(start.x,current.x),y=Math.min(start.y,current.y),w=Math.abs(current.x-start.x),h=Math.abs(current.y-start.y);ctx.strokeStyle='#00ff70';ctx.lineWidth=2;ctx.strokeRect(x,y,w,h);ctx.fillStyle='#00ff7022';ctx.fillRect(x,y,w,h);}
+function clearTrackingLog(){logLines=[];trackingLog.value='';}
+function appendTrackingOutputs(outputs){
+  for(const output of outputs){
+    afterSequence=Math.max(afterSequence,Number(output.sequence));
+    const b=output.bbox;
+    logLines.push(`seq=${output.sequence} frame=${output.frame_id}  bbox=[${Number(b.x).toFixed(2)}, ${Number(b.y).toFixed(2)}, ${Number(b.width).toFixed(2)}, ${Number(b.height).toFixed(2)}]  confidence=${Number(output.confidence).toFixed(4)}`);
+  }
+  if(logLines.length>300)logLines.splice(0,logLines.length-300);
+  if(outputs.length){trackingLog.value=logLines.join('\n');trackingLog.scrollTop=trackingLog.scrollHeight;}
+}
+async function pollTrackingOutputs(){
+  if(outputPolling)return;
+  outputPolling=true;
+  try{const data=await api(`/api/tracking-output?after=${afterSequence}&limit=200`);appendTrackingOutputs(data.outputs||[]);}catch(e){}
+  finally{outputPolling=false;}
+}
+canvas.addEventListener('pointerdown',e=>{start=current=point(e);canvas.setPointerCapture(e.pointerId);draw();});
+canvas.addEventListener('pointermove',e=>{if(start){current=point(e);draw();}});
+canvas.addEventListener('pointerup',async e=>{if(!start)return;current=point(e);const x=Math.min(start.x,current.x),y=Math.min(start.y,current.y),w=Math.abs(current.x-start.x),h=Math.abs(current.y-start.y);start=current=null;draw();if(w<3||h<3)return;const sx=video.naturalWidth/canvas.width,sy=video.naturalHeight/canvas.height;try{await api('/api/track',{bbox:{x:x*sx,y:y*sy,width:w*sx,height:h*sy},backend:'ncnn'});}catch(err){alert(err.message);}});
+$('connect').onclick=async()=>{try{afterSequence=0;clearTrackingLog();await api('/api/connect',{url:$('url').value,backend:'ncnn'});video.src='/api/stream?ts='+Date.now();}catch(e){alert(e.message);}};
+$('disconnect').onclick=async()=>{await api('/api/disconnect',{});video.removeAttribute('src');};
+$('cancel').onclick=async()=>api('/api/cancel',{});
+$('clearLog').onclick=clearTrackingLog;
+video.onload=resizeCanvas;new ResizeObserver(resizeCanvas).observe(video);
+setInterval(async()=>{try{const s=await api('/api/status');$('status').textContent=`${s.message}｜连接 ${s.connected?'是':'否'}｜跟踪 ${s.tracking?'是':'否'}｜推理 ${Number(s.fps).toFixed(1)} FPS｜置信度 ${Number(s.confidence).toFixed(4)}`;if(s.connected&&!video.src)video.src='/api/stream?ts='+Date.now();}catch(e){}},500);
+setInterval(pollTrackingOutputs,100);
+</script>
+</body>
+</html>

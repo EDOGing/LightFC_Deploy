@@ -1,0 +1,4 @@
+/build/
+/vcpkg_installed/
+/third_party/opencv-static/build/
+/third_party/opencv-static/downloads/
